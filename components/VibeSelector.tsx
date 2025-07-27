@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { ScrollArea } from "@/components/ui/scroll-area"
 import { Search } from "lucide-react"
 
 interface Vibe {
@@ -21,18 +20,18 @@ interface VibeSelectorProps {
 }
 
 const TRENDING_VIBES = [
-  "Fiesta",
-  "Relax",
-  "MoodBooster",
-  "Romántico",
-  "Foodie",
-  "Alternativo",
-  "Aventurero",
-  "Cultural",
-  "Pet-Friendly",
-  "Shopaholic",
-  "Techie",
-  "Artsy",
+  "zen_minimal",
+  "playa_chill",
+  "chaos_fiesta",
+  "romanticon",
+  "night_market",
+  "cyber_underground",
+  "desert_wave",
+  "neo_bolero",
+  "barrio_craft",
+  "pastelcore",
+  "retro_arcade",
+  "cosmic_siesta",
 ]
 
 export function VibeSelector({ selectedVibe, onVibeSelect, vibes }: VibeSelectorProps) {
@@ -42,7 +41,6 @@ export function VibeSelector({ selectedVibe, onVibeSelect, vibes }: VibeSelector
   const timeoutRef = useRef<NodeJS.Timeout>()
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Debounced search
   useEffect(() => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current)
@@ -88,7 +86,6 @@ export function VibeSelector({ selectedVibe, onVibeSelect, vibes }: VibeSelector
 
   const handleSearchSubmit = () => {
     if (searchQuery.trim()) {
-      // Fallback: usar texto libre para LLM routing
       onVibeSelect(searchQuery.trim())
       setShowMatches(false)
     }
@@ -99,21 +96,21 @@ export function VibeSelector({ selectedVibe, onVibeSelect, vibes }: VibeSelector
       {/* Trending Vibes Chips */}
       <div className="space-y-2">
         <h3 className="text-sm font-medium text-muted-foreground">Trending Vibes</h3>
-        <ScrollArea className="w-full">
-          <div className="flex gap-2 pb-2">
-            {TRENDING_VIBES.map((vibe) => (
-              <Button
-                key={vibe}
-                variant={selectedVibe === vibe ? "default" : "outline"}
-                size="sm"
-                onClick={() => handleTrendingClick(vibe)}
-                className={`whitespace-nowrap flex-shrink-0 ${selectedVibe === vibe ? "bg-primary/80 text-white" : ""}`}
-              >
-                {vibe}
-              </Button>
-            ))}
-          </div>
-        </ScrollArea>
+        <div className="flex gap-2 overflow-x-auto pb-2">
+          {TRENDING_VIBES.map((vibe) => (
+            <Button
+              key={vibe}
+              variant={selectedVibe === vibe ? "default" : "outline"}
+              size="sm"
+              onClick={() => handleTrendingClick(vibe)}
+              className={`whitespace-nowrap flex-shrink-0 ${
+                selectedVibe === vibe ? "bg-primary text-primary-foreground" : ""
+              }`}
+            >
+              {vibe.replace("_", " ")}
+            </Button>
+          ))}
+        </div>
       </div>
 
       {/* Search Input */}
