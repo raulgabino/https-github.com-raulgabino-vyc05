@@ -1,0 +1,1642 @@
+{{
+  "vibes": [
+    {
+      "id": "zen_minimal",
+      "v": [0.05, 0.10, 0.30, 0.10, 0.00, 0.10],
+      "tags": ["calm", "white_space", "mindful"],
+      "desc": "Quiet oasis for mindful coffee."
+    },
+    {
+      "id": "cyber_underground",
+      "v": [0.70, 0.60, 0.40, 0.50, 0.20, 0.50],
+      "tags": ["hacker", "luces_neon", "late_night"],
+      "desc": "Pasillos neón y código clandestino."
+    },
+    {
+      "id": "playa_chill",
+      "v": [0.20, 0.40, 0.60, 0.30, 0.10, 0.20],
+      "tags": ["sunset", "sandals_off", "coconut"],
+      "desc": "Hamaca, brisa y cero prisa."
+    },
+    {
+      "id": "chaos_fiesta",
+      "v": [0.95, 0.90, 0.85, 0.75, 0.60, 0.40],
+      "tags": ["desmadre", "globos", "reggaeton_all_day"],
+      "desc": "Bailongo descontrolado con confeti eterno."
+    },
+    {
+      "id": "pastelcore",
+      "v": [0.15, 0.50, 0.30, 0.40, 0.70, 0.15],
+      "tags": ["cute", "colores_pastel", "insta_ready"],
+      "desc": "Algodón de azúcar hecho espacio."
+    },
+    {
+      "id": "glitch_garden",
+      "v": [0.60, 0.80, 0.50, 0.70, 0.40, 0.35],
+      "tags": ["art_digital", "flora_mutante", "rgb_noise"],
+      "desc": "Jardín pixelado que parpadea vivo."
+    },
+    {
+      "id": "retro_arcade",
+      "v": [0.50, 0.75, 0.45, 0.55, 0.65, 0.30],
+      "tags": ["8bit", "maquinas_arcade", "high_score"],
+      "desc": "Luces chiludas y bitpop constante."
+    },
+    {
+      "id": "neo_bolero",
+      "v": [0.25, 0.30, 0.40, 0.20, 0.30, 0.25],
+      "tags": ["romance", "guitarra_suave", "cafe_lento"],
+      "desc": "Susurros de bolero con wifi."
+    },
+    {
+      "id": "night_market",
+      "v": [0.55, 0.85, 0.70, 0.40, 0.35, 0.50],
+      "tags": ["street_food", "bargain_hunt", "lanterns"],
+      "desc": "Calle bulliciosa de sabores nocturnos."
+    },
+    {
+      "id": "cosmic_siesta",
+      "v": [0.35, 0.45, 0.20, 0.50, 0.50, 0.10],
+      "tags": ["microdosing", "space_dreams", "chillwave"],
+      "desc": "Siesta flotante entre constelaciones lo-fi."
+    },
+    {
+      "id": "romanticon",
+      "v": [0.30, 0.25, 0.35, 0.20, 0.40, 0.15],
+      "tags": ["velas", "slow_dance", "rosas"],
+      "desc": "Cena íntima con playlist cursi."
+    },
+    {
+      "id": "speedrun_cafe",
+      "v": [0.40, 0.50, 0.90, 0.30, 0.25, 0.60],
+      "tags": ["work_sprint", "espresso_doble", "timer_on"],
+      "desc": "Cordura al límite para deadline."
+    },
+    {
+      "id": "barrio_craft",
+      "v": [0.45, 0.35, 0.55, 0.25, 0.30, 0.20],
+      "tags": ["artesanias", "vecindario", "bench_mural"],
+      "desc": "Manos creativas y saludos de esquina."
+    },
+    {
+      "id": "desert_wave",
+      "v": [0.50, 0.20, 0.40, 0.35, 0.10, 0.40],
+      "tags": ["solazo", "beat", "arena"],
+      "desc": "Techo estelar y beats ardientes."
+    },
+    {
+      "id": "lluvia_lofi",
+      "v": [0.10, 0.15, 0.35, 0.15, 0.05, 0.10],
+      "tags": ["rain_sounds", "study_mode", "hoodie"],
+      "desc": "Gotas suaves y beats lo-fi."
+    },
+    {
+      "id": "hyperpop_rave",
+      "v": [0.80, 0.95, 0.85, 0.90, 0.60, 0.50],
+      "tags": ["auto_tune", "flashy", "candycore"],
+      "desc": "Estallido de color y bpm absurdos."
+    },
+    {
+      "id": "biblioteca_oculta",
+      "v": [0.10, 0.20, 0.15, 0.05, 0.05, 0.30],
+      "tags": ["whisper", "dusty_tomes", "secret_door"],
+      "desc": "Pasadizo de saberes polvorientos."
+    },
+    {
+      "id": "techno_monasterio",
+      "v": [0.35, 0.50, 0.25, 0.40, 0.10, 0.40],
+      "tags": ["chant", "bassline", "stone_walls"],
+      "desc": "Mantras gregorianos con techno profundo."
+    },
+    {
+      "id": "vaporwave_pool",
+      "v": [0.30, 0.70, 0.45, 0.60, 0.55, 0.25],
+      "tags": ["pink_tiles", "slow_motion", "miami_84"],
+      "desc": "Flotación nostálgica en pastel glitch."
+    },
+    {
+      "id": "bosque_mistico",
+      "v": [0.45, 0.35, 0.30, 0.25, 0.15, 0.45],
+      "tags": ["fog", "susurros", "gnomos"],
+      "desc": "Sendero húmedo con magia latente."
+    },
+    {
+      "id": "mango_monday",
+      "v": [0.25, 0.50, 0.60, 0.35, 0.20, 0.15],
+      "tags": ["fresh", "vitamina", "brunch"],
+      "desc": "Dulce fresco para empezar la semana."
+    },
+    {
+      "id": "magma_tacos",
+      "v": [0.70, 0.75, 0.55, 0.45, 0.25, 0.55],
+      "tags": ["picante", "lava_salsa", "street_heat"],
+      "desc": "Taco volcánico que exige valentía."
+    },
+    {
+      "id": "sakura_zen",
+      "v": [0.05, 0.30, 0.20, 0.15, 0.10, 0.05],
+      "tags": ["cerezos", "haiku", "tea"],
+      "desc": "Petalos caen sobre tu té."
+    },
+    {
+      "id": "neon_mariachi",
+      "v": [0.80, 0.85, 0.70, 0.65, 0.55, 0.45],
+      "tags": ["trompeta", "led_sombrero", "grito"],
+      "desc": "Serenata futurista con luces neón."
+    },
+    {
+      "id": "ghost_town",
+      "v": [0.40, 0.20, 0.25, 0.15, 0.10, 0.60],
+      "tags": ["abandoned", "dust", "echoes"],
+      "desc": "Calles vacías susurran historias olvidadas."
+    }
+  ],
+  "digest": [
+    {"id": "zen_minimal", "v": [0.05, 0.10, 0.30, 0.10, 0.00, 0.10]},
+    {"id": "cyber_underground", "v": [0.70, 0.60, 0.40, 0.50, 0.20, 0.50]},
+    {"id": "playa_chill", "v": [0.20, 0.40, 0.60, 0.30, 0.10, 0.20]},
+    {"id": "chaos_fiesta", "v": [0.95, 0.90, 0.85, 0.75, 0.60, 0.40]},
+    {"id": "pastelcore", "v": [0.15, 0.50, 0.30, 0.40, 0.70, 0.15]},
+    {"id": "glitch_garden", "v": [0.60, 0.80, 0.50, 0.70, 0.40, 0.35]},
+    {"id": "retro_arcade", "v": [0.50, 0.75, 0.45, 0.55, 0.65, 0.30]},
+    {"id": "neo_bolero", "v": [0.25, 0.30, 0.40, 0.20, 0.30, 0.25]},
+    {"id": "night_market", "v": [0.55, 0.85, 0.70, 0.40, 0.35, 0.50]},
+    {"id": "cosmic_siesta", "v": [0.35, 0.45, 0.20, 0.50, 0.50, 0.10]},
+    {"id": "romanticon", "v": [0.30, 0.25, 0.35, 0.20, 0.40, 0.15]},
+    {"id": "speedrun_cafe", "v": [0.40, 0.50, 0.90, 0.30, 0.25, 0.60]},
+    {"id": "barrio_craft", "v": [0.45, 0.35, 0.55, 0.25, 0.30, 0.20]},
+    {"id": "desert_wave", "v": [0.50, 0.20, 0.40, 0.35, 0.10, 0.40]},
+    {"id": "lluvia_lofi", "v": [0.10, 0.15, 0.35, 0.15, 0.05, 0.10]},
+    {"id": "hyperpop_rave", "v": [0.80, 0.95, 0.85, 0.90, 0.60, 0.50]},
+    {"id": "biblioteca_oculta", "v": [0.10, 0.20, 0.15, 0.05, 0.05, 0.30]},
+    {"id": "techno_monasterio", "v": [0.35, 0.50, 0.25, 0.40, 0.10, 0.40]},
+    {"id": "vaporwave_pool", "v": [0.30, 0.70, 0.45, 0.60, 0.55, 0.25]},
+    {"id": "bosque_mistico", "v": [0.45, 0.35, 0.30, 0.25, 0.15, 0.45]},
+    {"id": "mango_monday", "v": [0.25, 0.50, 0.60, 0.35, 0.20, 0.15]},
+    {"id": "magma_tacos", "v": [0.70, 0.75, 0.55, 0.45, 0.25, 0.55]},
+    {"id": "sakura_zen", "v": [0.05, 0.30, 0.20, 0.15, 0.10, 0.05]},
+    {"id": "neon_mariachi", "v": [0.80, 0.85, 0.70, 0.65, 0.55, 0.45]},
+    {"id": "ghost_town", "v": [0.40, 0.20, 0.25, 0.15, 0.10, 0.60]}
+  ]
+}
+
+
+{
+  "vibes": [
+    {
+      "id": "tralalero",
+      "v": [0.90, 0.85, 0.80, 1.00, 0.70, 0.20],
+      "tags": ["brainrot", "sin_plan", "color_overload"],
+      "desc": "Domingo absurdo y memético, sin estructura."
+    },
+    {
+      "id": "bellakeo",
+      "v": [0.85, 0.80, 0.75, 0.60, 0.45, 0.30],
+      "tags": ["perreo", "flow_caliente", "club_lights"],
+      "desc": "Perreo suelto, sudor brillante y flow callejero."
+    },
+    {
+      "id": "slow_drip",
+      "v": [0.05, 0.10, 0.15, 0.05, 0.05, 0.15],
+      "tags": ["pour_over", "breathwork", "minimal_noise"],
+      "desc": "Goteo lento que alinea tu respiración."
+    },
+    {
+      "id": "space_pinata",
+      "v": [0.80, 0.90, 0.50, 0.85, 0.75, 0.40],
+      "tags": ["cosmic_fiesta", "estrellas", "confetti"],
+      "desc": "Piñata galáctica explotando colores y risas."
+    },
+    {
+      "id": "sushi_skate",
+      "v": [0.60, 0.55, 0.80, 0.45, 0.20, 0.50],
+      "tags": ["ollie", "nigiri", "ramen_break"],
+      "desc": "Kickflips y nigiri al ritmo del punk."
+    },
+    {
+      "id": "digital_meditation",
+      "v": [0.10, 0.40, 0.20, 0.10, 0.10, 0.10],
+      "tags": ["binaural", "pixel_silence", "calma_tech"],
+      "desc": "Pantallas lentas que inducen respiración zen."
+    },
+    {
+      "id": "gothic_tea",
+      "v": [0.35, 0.25, 0.20, 0.15, 0.40, 0.55],
+      "tags": ["velvet", "absinthe", "sombras"],
+      "desc": "Té oscuro entre vitrales y susurros latentes."
+    },
+    {
+      "id": "silence_engine",
+      "v": [0.10, 0.20, 0.10, 0.05, 0.05, 0.70],
+      "tags": ["focus_zone", "hushed", "member_only"],
+      "desc": "Murmurios nulos para grind sin distracciones."
+    },
+    {
+      "id": "jungle_jam",
+      "v": [0.75, 0.80, 0.85, 0.50, 0.30, 0.45],
+      "tags": ["lianas", "drum_circle", "wild_bites"],
+      "desc": "Ritmos tribales crecen entre lianas y humo."
+    },
+    {
+      "id": "pixel_taqueria",
+      "v": [0.55, 0.60, 0.50, 0.70, 0.80, 0.35],
+      "tags": ["bit_salsa", "led_menu", "byte_burrito"],
+      "desc": "Tacos 8-bit servidos bajo glitch constante."
+    },
+    {
+      "id": "opera_underdome",
+      "v": [0.40, 0.65, 0.20, 0.25, 0.50, 0.80],
+      "tags": ["aria", "steel_arch", "vip_entry"],
+      "desc": "Aria retumba dentro de cúpula post-apocalíptica."
+    },
+    {
+      "id": "vapor_kayak",
+      "v": [0.30, 0.45, 0.70, 0.40, 0.35, 0.50],
+      "tags": ["lagoon", "retro_fade", "paddle"],
+      "desc": "Navegación lenta sobre agua VHS."
+    },
+    {
+      "id": "noir_cafe",
+      "v": [0.15, 0.20, 0.25, 0.20, 0.15, 0.25],
+      "tags": ["fedoras", "smoke_trail", "filter_coffee"],
+      "desc": "Sombras largas acompañan espresso conspirativo."
+    },
+    {
+      "id": "rainbow_roll",
+      "v": [0.25, 0.85, 0.50, 0.65, 0.55, 0.20],
+      "tags": ["makizushi", "pride_colors", "sparkle"],
+      "desc": "Sushi arcoíris que brilla en stories."
+    },
+    {
+      "id": "barrio_funk",
+      "v": [0.65, 0.75, 0.70, 0.55, 0.45, 0.30],
+      "tags": ["boombox", "graffiti", "soul_food"],
+      "desc": "Groove callejero que sacude la banqueta."
+    },
+    {
+      "id": "misty_lab",
+      "v": [0.20, 0.20, 0.15, 0.10, 0.05, 0.70],
+      "tags": ["steam", "cipher", "night_shift"],
+      "desc": "Experimentación sigilosa tras puertas empañadas."
+    },
+    {
+      "id": "neon_ludoteca",
+      "v": [0.70, 0.85, 0.75, 0.80, 0.65, 0.40],
+      "tags": ["boardgames", "rgb", "snack_tower"],
+      "desc": "Juegos de mesa brillan como rave."
+    },
+    {
+      "id": "ceramic_zen",
+      "v": [0.10, 0.15, 0.30, 0.10, 0.10, 0.35],
+      "tags": ["wheel", "clay", "hands_on"],
+      "desc": "Silencio giratorio mientras nace la vasija."
+    },
+    {
+      "id": "margarita_midnight",
+      "v": [0.80, 0.85, 0.80, 0.55, 0.40, 0.25],
+      "tags": ["citrus_shot", "latenight", "laughs"],
+      "desc": "Media noche con sal, chisme y tequila."
+    },
+    {
+      "id": "ice_planet",
+      "v": [0.20, 0.25, 0.35, 0.30, 0.10, 0.45],
+      "tags": ["glacial", "ambient_echo", "blue_lights"],
+      "desc": "Sosiego polar entre cristales celestes."
+    },
+    {
+      "id": "dark_academia",
+      "v": [0.15, 0.20, 0.25, 0.30, 0.20, 0.65],
+      "tags": ["ink", "candles", "latin_quotes"],
+      "desc": "Biblias góticas inspiran tesis existencial."
+    },
+    {
+      "id": "taco_trance",
+      "v": [0.75, 0.80, 0.85, 0.65, 0.50, 0.25],
+      "tags": ["psy_trance", "cilantro", "laser_salsa"],
+      "desc": "Rave psicodélico alrededor de plancha caliente."
+    },
+    {
+      "id": "cripto_cathedral",
+      "v": [0.30, 0.55, 0.20, 0.70, 0.30, 0.75],
+      "tags": ["blockchain", "choir", "cold_wallet"],
+      "desc": "Cantos gregorianos sobre pantallas de led."
+    },
+    {
+      "id": "bubblegum_grunge",
+      "v": [0.85, 0.90, 0.70, 0.60, 0.80, 0.45],
+      "tags": ["chewed_pink", "fuzz", "garage"],
+      "desc": "Azúcar distorsionada vibra en garaje sucio."
+    },
+    {
+      "id": "nano_nature",
+      "v": [0.30, 0.25, 0.70, 0.20, 0.15, 0.15],
+      "tags": ["microforest", "tiny_bench", "quiet"],
+      "desc": "Bosque bolsillo ofrece respiro urbano instantáneo."
+    }
+  ],
+  "digest": [
+    {"id": "tralalero", "v": [0.90, 0.85, 0.80, 1.00, 0.70, 0.20]},
+    {"id": "bellakeo", "v": [0.85, 0.80, 0.75, 0.60, 0.45, 0.30]},
+    {"id": "slow_drip", "v": [0.05, 0.10, 0.15, 0.05, 0.05, 0.15]},
+    {"id": "space_pinata", "v": [0.80, 0.90, 0.50, 0.85, 0.75, 0.40]},
+    {"id": "sushi_skate", "v": [0.60, 0.55, 0.80, 0.45, 0.20, 0.50]},
+    {"id": "digital_meditation", "v": [0.10, 0.40, 0.20, 0.10, 0.10, 0.10]},
+    {"id": "gothic_tea", "v": [0.35, 0.25, 0.20, 0.15, 0.40, 0.55]},
+    {"id": "silence_engine", "v": [0.10, 0.20, 0.10, 0.05, 0.05, 0.70]},
+    {"id": "jungle_jam", "v": [0.75, 0.80, 0.85, 0.50, 0.30, 0.45]},
+    {"id": "pixel_taqueria", "v": [0.55, 0.60, 0.50, 0.70, 0.80, 0.35]},
+    {"id": "opera_underdome", "v": [0.40, 0.65, 0.20, 0.25, 0.50, 0.80]},
+    {"id": "vapor_kayak", "v": [0.30, 0.45, 0.70, 0.40, 0.35, 0.50]},
+    {"id": "noir_cafe", "v": [0.15, 0.20, 0.25, 0.20, 0.15, 0.25]},
+    {"id": "rainbow_roll", "v": [0.25, 0.85, 0.50, 0.65, 0.55, 0.20]},
+    {"id": "barrio_funk", "v": [0.65, 0.75, 0.70, 0.55, 0.45, 0.30]},
+    {"id": "misty_lab", "v": [0.20, 0.20, 0.15, 0.10, 0.05, 0.70]},
+    {"id": "neon_ludoteca", "v": [0.70, 0.85, 0.75, 0.80, 0.65, 0.40]},
+    {"id": "ceramic_zen", "v": [0.10, 0.15, 0.30, 0.10, 0.10, 0.35]},
+    {"id": "margarita_midnight", "v": [0.80, 0.85, 0.80, 0.55, 0.40, 0.25]},
+    {"id": "ice_planet", "v": [0.20, 0.25, 0.35, 0.30, 0.10, 0.45]},
+    {"id": "dark_academia", "v": [0.15, 0.20, 0.25, 0.30, 0.20, 0.65]},
+    {"id": "taco_trance", "v": [0.75, 0.80, 0.85, 0.65, 0.50, 0.25]},
+    {"id": "cripto_cathedral", "v": [0.30, 0.55, 0.20, 0.70, 0.30, 0.75]},
+    {"id": "bubblegum_grunge", "v": [0.85, 0.90, 0.70, 0.60, 0.80, 0.45]},
+    {"id": "nano_nature", "v": [0.30, 0.25, 0.70, 0.20, 0.15, 0.15]}
+  ]
+}
+
+
+{
+  "vibes": [
+    {
+      "id": "mar_bleu",
+      "v": [0.10, 0.40, 0.20, 0.15, 0.05, 0.25],
+      "tags": ["oceanic", "breve_azul", "calm_brew"],
+      "desc": "Mar calmo, azules profundos y café suave."
+    },
+    {
+      "id": "punk_pastoril",
+      "v": [0.70, 0.50, 0.60, 0.55, 0.35, 0.40],
+      "tags": ["barn_riffs", "spiky_hay", "diy_stage"],
+      "desc": "Gallinas punk y riff anárquico entre granero."
+    },
+    {
+      "id": "neutra_pulse",
+      "v": [0.30, 0.30, 0.50, 0.25, 0.10, 0.20],
+      "tags": ["cowork", "lofi_beat", "neutral_hues"],
+      "desc": "Cowork neutral con ritmos electrónicos pausados."
+    },
+    {
+      "id": "laberinto_laser",
+      "v": [0.80, 0.90, 0.40, 0.70, 0.45, 0.60],
+      "tags": ["maze", "neon_beam", "escape_room"],
+      "desc": "Laberinto láser que dispara adrenalina neón."
+    },
+    {
+      "id": "salsa_soft",
+      "v": [0.35, 0.50, 0.70, 0.40, 0.20, 0.20],
+      "tags": ["tacones_suaves", "latin_flow", "candlelight"],
+      "desc": "Pasos suaves de salsa bajo luces tibias."
+    },
+    {
+      "id": "icecream_inferno",
+      "v": [0.60, 0.85, 0.65, 0.75, 0.55, 0.30],
+      "tags": ["spicy_scoops", "viral_challenge", "fire_emoji"],
+      "desc": "Helado ardiente, toppings inflables y risas virales."
+    },
+    {
+      "id": "folk_future",
+      "v": [0.40, 0.45, 0.55, 0.35, 0.30, 0.35],
+      "tags": ["banjo_synth", "trad_mod", "holo_stage"],
+      "desc": "Folklore futurista con beats de holograma."
+    },
+    {
+      "id": "lunar_laundry",
+      "v": [0.25, 0.60, 0.35, 0.45, 0.50, 0.20],
+      "tags": ["zero_g_spin", "space_dryer", "pastel_orbit"],
+      "desc": "Lavandería lunar girando órbitas pastel suaves."
+    },
+    {
+      "id": "metro_midtempo",
+      "v": [0.50, 0.55, 0.30, 0.20, 0.15, 0.55],
+      "tags": ["commuter_beat", "platform_jams", "rush_hour"],
+      "desc": "Beat medio late junto a vagones urbanos."
+    },
+    {
+      "id": "tundra_trap",
+      "v": [0.55, 0.40, 0.60, 0.50, 0.25, 0.45],
+      "tags": ["frostbite_bass", "aurora_club", "snow_drop"],
+      "desc": "Trap gélido retumba bajo aurora boreal."
+    },
+    {
+      "id": "pixel_palapa",
+      "v": [0.35, 0.70, 0.65, 0.60, 0.60, 0.25],
+      "tags": ["beach_bits", "retro_hut", "sunset_glitch"],
+      "desc": "Palapa digital con píxeles que brillan."
+    },
+    {
+      "id": "graffiti_gaia",
+      "v": [0.65, 0.75, 0.70, 0.55, 0.35, 0.35],
+      "tags": ["eco_spray", "street_green", "seed_bombs"],
+      "desc": "Graffiti verde germina en muros rebeldes."
+    },
+    {
+      "id": "cloud_cantina",
+      "v": [0.20, 0.35, 0.40, 0.30, 0.10, 0.15],
+      "tags": ["rooftop", "foam_drinks", "soft_house"],
+      "desc": "Cantina en nubes, bebidas etéreas, brisa leve."
+    },
+    {
+      "id": "submarine_soul",
+      "v": [0.30, 0.50, 0.25, 0.20, 0.20, 0.40],
+      "tags": ["deep_sea", "brass_echo", "bubble_jazz"],
+      "desc": "Soul submarino vibra bajo luces azul profundo."
+    },
+    {
+      "id": "zen_zap",
+      "v": [0.45, 0.40, 0.80, 0.35, 0.10, 0.35],
+      "tags": ["calm_then_boom", "mindshock", "focus_flip"],
+      "desc": "Silencio zen interrumpido por chispazo energético."
+    },
+    {
+      "id": "opera_orange",
+      "v": [0.40, 0.65, 0.20, 0.30, 0.70, 0.50],
+      "tags": ["citrus_aria", "dramatic_drip", "velvet_peel"],
+      "desc": "Ópera cítrica resuena entre cortinas naranja kitsch."
+    },
+    {
+      "id": "karaoke_karate",
+      "v": [0.75, 0.70, 0.85, 0.65, 0.60, 0.45],
+      "tags": ["mic_kicks", "dojo_glitter", "high_notes"],
+      "desc": "Patadas y karaoke se mezclan sin pudor."
+    },
+    {
+      "id": "bossa_byte",
+      "v": [0.25, 0.50, 0.55, 0.40, 0.20, 0.25],
+      "tags": ["samba_code", "warm_keys", "byte_bossa"],
+      "desc": "Bossa nova digital en teclas cálidas."
+    },
+    {
+      "id": "haunted_hotcakes",
+      "v": [0.50, 0.45, 0.40, 0.55, 0.40, 0.30],
+      "tags": ["ghost_syrup", "creak_floor", "midnight_brunch"],
+      "desc": "Hotcakes embrujados giran en cafetería tenebrosa."
+    },
+    {
+      "id": "glow_glacier",
+      "v": [0.30, 0.55, 0.35, 0.40, 0.25, 0.40],
+      "tags": ["ice_lights", "chillwave", "drone_hum"],
+      "desc": "Glaciar fluorescente cruje con ecos synthwave."
+    },
+    {
+      "id": "rompe_rutina",
+      "v": [0.60, 0.50, 0.90, 0.50, 0.30, 0.35],
+      "tags": ["daily_break", "spur_moment", "fresh_spin"],
+      "desc": "Ruptura diaria con improvisación descarada y risas."
+    },
+    {
+      "id": "origami_odyssey",
+      "v": [0.25, 0.30, 0.45, 0.35, 0.15, 0.25],
+      "tags": ["paper_paths", "fold_calm", "silent_crease"],
+      "desc": "Aventura papel que dobla realidades serenas."
+    },
+    {
+      "id": "blues_blizzard",
+      "v": [0.40, 0.30, 0.35, 0.25, 0.10, 0.45],
+      "tags": ["snow_blues", "slide_guitar", "frost_lounge"],
+      "desc": "Tormenta de blues sopla riffs gélidos."
+    },
+    {
+      "id": "safari_synth",
+      "v": [0.70, 0.65, 0.60, 0.50, 0.30, 0.50],
+      "tags": ["cyber_savanna", "roar_bass", "neon_binoc"],
+      "desc": "Safari sintético recorre jungla electrónica audaz."
+    },
+    {
+      "id": "cafe_cobalto",
+      "v": [0.15, 0.35, 0.25, 0.20, 0.05, 0.15],
+      "tags": ["blue_light", "quiet_java", "focus_zone"],
+      "desc": "Café cobalto vibra en calma lumínica."
+    }
+  ],
+  "digest": [
+    {"id": "mar_bleu", "v": [0.10, 0.40, 0.20, 0.15, 0.05, 0.25]},
+    {"id": "punk_pastoril", "v": [0.70, 0.50, 0.60, 0.55, 0.35, 0.40]},
+    {"id": "neutra_pulse", "v": [0.30, 0.30, 0.50, 0.25, 0.10, 0.20]},
+    {"id": "laberinto_laser", "v": [0.80, 0.90, 0.40, 0.70, 0.45, 0.60]},
+    {"id": "salsa_soft", "v": [0.35, 0.50, 0.70, 0.40, 0.20, 0.20]},
+    {"id": "icecream_inferno", "v": [0.60, 0.85, 0.65, 0.75, 0.55, 0.30]},
+    {"id": "folk_future", "v": [0.40, 0.45, 0.55, 0.35, 0.30, 0.35]},
+    {"id": "lunar_laundry", "v": [0.25, 0.60, 0.35, 0.45, 0.50, 0.20]},
+    {"id": "metro_midtempo", "v": [0.50, 0.55, 0.30, 0.20, 0.15, 0.55]},
+    {"id": "tundra_trap", "v": [0.55, 0.40, 0.60, 0.50, 0.25, 0.45]},
+    {"id": "pixel_palapa", "v": [0.35, 0.70, 0.65, 0.60, 0.60, 0.25]},
+    {"id": "graffiti_gaia", "v": [0.65, 0.75, 0.70, 0.55, 0.35, 0.35]},
+    {"id": "cloud_cantina", "v": [0.20, 0.35, 0.40, 0.30, 0.10, 0.15]},
+    {"id": "submarine_soul", "v": [0.30, 0.50, 0.25, 0.20, 0.20, 0.40]},
+    {"id": "zen_zap", "v": [0.45, 0.40, 0.80, 0.35, 0.10, 0.35]},
+    {"id": "opera_orange", "v": [0.40, 0.65, 0.20, 0.30, 0.70, 0.50]},
+    {"id": "karaoke_karate", "v": [0.75, 0.70, 0.85, 0.65, 0.60, 0.45]},
+    {"id": "bossa_byte", "v": [0.25, 0.50, 0.55, 0.40, 0.20, 0.25]},
+    {"id": "haunted_hotcakes", "v": [0.50, 0.45, 0.40, 0.55, 0.40, 0.30]},
+    {"id": "glow_glacier", "v": [0.30, 0.55, 0.35, 0.40, 0.25, 0.40]},
+    {"id": "rompe_rutina", "v": [0.60, 0.50, 0.90, 0.50, 0.30, 0.35]},
+    {"id": "origami_odyssey", "v": [0.25, 0.30, 0.45, 0.35, 0.15, 0.25]},
+    {"id": "blues_blizzard", "v": [0.40, 0.30, 0.35, 0.25, 0.10, 0.45]},
+    {"id": "safari_synth", "v": [0.70, 0.65, 0.60, 0.50, 0.30, 0.50]},
+    {"id": "cafe_cobalto", "v": [0.15, 0.35, 0.25, 0.20, 0.05, 0.15]}
+  ]
+}
+
+{
+  "vibes": [
+    {
+      "id": "chido",
+      "v": [0.30, 0.45, 0.40, 0.50, 0.20, 0.15],
+      "tags": ["cool", "tranqui", "buen_ambiente"],
+      "desc": "Vibra buena onda, todo se siente chido."
+    },
+    {
+      "id": "instagrameable",
+      "v": [0.40, 0.90, 0.55, 0.85, 0.50, 0.25],
+      "tags": ["selfie_spot", "color_pop", "hashtag"],
+      "desc": "Rincón foto-perfecto para stories nonstop."
+    },
+    {
+      "id": "tirar_rollo",
+      "v": [0.35, 0.30, 0.80, 0.45, 0.15, 0.20],
+      "tags": ["platicar", "storytime", "cotorreo"],
+      "desc": "Mesa larga para tirar rollo ilimitado."
+    },
+    {
+      "id": "traka",
+      "v": [0.80, 0.85, 0.70, 0.60, 0.40, 0.35],
+      "tags": ["zapateado", "bass_banda", "fieston"],
+      "desc": "Beats banda y bajos tronando traka."
+    },
+    {
+      "id": "machin",
+      "v": [0.65, 0.60, 0.55, 0.35, 0.25, 0.45],
+      "tags": ["hardcore", "rudo", "sin_miedo"],
+      "desc": "Ambiente machín, sudor y bravura."
+    },
+    {
+      "id": "chingon",
+      "v": [0.70, 0.55, 0.50, 0.60, 0.30, 0.30],
+      "tags": ["top_notch", "orgullo_mexa", "boss_vibe"],
+      "desc": "Lugar chingón que impone respeto inmediato."
+    },
+    {
+      "id": "relajo",
+      "v": [0.85, 0.70, 0.75, 0.50, 0.35, 0.20],
+      "tags": ["desmadre", "carcajadas", "impro_total"],
+      "desc": "Relajo sabroso con carcajadas contagiosas."
+    },
+    {
+      "id": "pachanga",
+      "v": [0.90, 0.80, 0.85, 0.70, 0.45, 0.40],
+      "tags": ["fiesta", "baile", "chelas"],
+      "desc": "Pachanga eterna que no baja ritmo."
+    },
+    {
+      "id": "aguas",
+      "v": [0.20, 0.20, 0.25, 0.15, 0.10, 0.70],
+      "tags": ["alerta", "susurros", "piso_mojado"],
+      "desc": "Aguas, cada paso pide atención."
+    },
+    {
+      "id": "orale",
+      "v": [0.40, 0.35, 0.60, 0.45, 0.20, 0.30],
+      "tags": ["vamos_ya", "animo", "accion"],
+      "desc": "Órale: energía instantánea para arrancar."
+    },
+    {
+      "id": "gueyfest",
+      "v": [0.75, 0.75, 0.80, 0.65, 0.50, 0.35],
+      "tags": ["compas", "birria", "playlist_ranchera"],
+      "desc": "Güeyfest: compas, birria y risas estruendosas."
+    },
+    {
+      "id": "que_onda",
+      "v": [0.25, 0.40, 0.50, 0.55, 0.15, 0.15],
+      "tags": ["saludo", "relax_chat", "casual"],
+      "desc": "Qué onda spot para chill conversa."
+    },
+    {
+      "id": "bato_mode",
+      "v": [0.55, 0.50, 0.45, 0.40, 0.25, 0.35],
+      "tags": ["confidence", "swagger", "low_lights"],
+      "desc": "Modo bato, chill con swagger discreto."
+    },
+    {
+      "id": "chingadera",
+      "v": [0.80, 0.60, 0.65, 0.50, 0.70, 0.45],
+      "tags": ["weird_gadget", "kitsch_max", "wtf"],
+      "desc": "Chingadera brillante que encanta y confunde."
+    },
+    {
+      "id": "caguamazo",
+      "v": [0.60, 0.55, 0.70, 0.45, 0.30, 0.25],
+      "tags": ["mega_beer", "botanita", "lunes_friday"],
+      "desc": "Caguamazo frío para soltar la lengua."
+    },
+    {
+      "id": "bajarle_dos",
+      "v": [0.10, 0.25, 0.15, 0.10, 0.05, 0.20],
+      "tags": ["calma", "respiro", "zen_mex"],
+      "desc": "Bájale dos rayitas y respira."
+    },
+    {
+      "id": "sobres",
+      "v": [0.50, 0.45, 0.85, 0.55, 0.25, 0.15],
+      "tags": ["vamonos", "quick_move", "improv_trip"],
+      "desc": "Sobres: plan relámpago y vámonos."
+    },
+    {
+      "id": "fierro",
+      "v": [0.80, 0.70, 0.75, 0.55, 0.35, 0.40],
+      "tags": ["norteno_power", "grit_shout", "roadtrip"],
+      "desc": "¡Fierro pariente! arranque con adrenalina norteña."
+    },
+    {
+      "id": "tamalazo",
+      "v": [0.45, 0.65, 0.60, 0.40, 0.55, 0.35],
+      "tags": ["masa_party", "sabores", "trad_mix"],
+      "desc": "Tamalazo nocturno, vapor y salsa."
+    },
+    {
+      "id": "chilango_mix",
+      "v": [0.85, 0.75, 0.70, 0.60, 0.45, 0.50],
+      "tags": ["cdmx_noise", "metrobeat", "street"],
+      "desc": "Caos chilango mezclado con sabor urbano."
+    },
+    {
+      "id": "cabuleo",
+      "v": [0.55, 0.50, 0.80, 0.65, 0.35, 0.25],
+      "tags": ["broma", "sarcasmo", "jiji"],
+      "desc": "Cabuleo constante en bar de esquina."
+    },
+    {
+      "id": "alv_fiesta",
+      "v": [0.95, 0.90, 0.85, 0.80, 0.50, 0.45],
+      "tags": ["extremo", "sin_control", "shots"],
+      "desc": "Fiesta alv: caos garantizado nivel dios."
+    },
+    {
+      "id": "vato_lounge",
+      "v": [0.30, 0.40, 0.35, 0.30, 0.20, 0.25],
+      "tags": ["sillones", "lowkey", "cheve"],
+      "desc": "Lounge vato, sillón profundo y cheve fría."
+    },
+    {
+      "id": "nopal_power",
+      "v": [0.50, 0.55, 0.45, 0.50, 0.60, 0.30],
+      "tags": ["pride_mex", "green_pink", "folk"],
+      "desc": "Nopal power colorea kitsch patrio vibrante."
+    },
+    {
+      "id": "morro_glow",
+      "v": [0.60, 0.75, 0.70, 0.75, 0.35, 0.25],
+      "tags": ["gen_z", "led", "energy"],
+      "desc": "Brillo morro hypeado con LEDs everywhere."
+    }
+  ],
+  "digest": [
+    {"id": "chido", "v": [0.30, 0.45, 0.40, 0.50, 0.20, 0.15]},
+    {"id": "instagrameable", "v": [0.40, 0.90, 0.55, 0.85, 0.50, 0.25]},
+    {"id": "tirar_rollo", "v": [0.35, 0.30, 0.80, 0.45, 0.15, 0.20]},
+    {"id": "traka", "v": [0.80, 0.85, 0.70, 0.60, 0.40, 0.35]},
+    {"id": "machin", "v": [0.65, 0.60, 0.55, 0.35, 0.25, 0.45]},
+    {"id": "chingon", "v": [0.70, 0.55, 0.50, 0.60, 0.30, 0.30]},
+    {"id": "relajo", "v": [0.85, 0.70, 0.75, 0.50, 0.35, 0.20]},
+    {"id": "pachanga", "v": [0.90, 0.80, 0.85, 0.70, 0.45, 0.40]},
+    {"id": "aguas", "v": [0.20, 0.20, 0.25, 0.15, 0.10, 0.70]},
+    {"id": "orale", "v": [0.40, 0.35, 0.60, 0.45, 0.20, 0.30]},
+    {"id": "gueyfest", "v": [0.75, 0.75, 0.80, 0.65, 0.50, 0.35]},
+    {"id": "que_onda", "v": [0.25, 0.40, 0.50, 0.55, 0.15, 0.15]},
+    {"id": "bato_mode", "v": [0.55, 0.50, 0.45, 0.40, 0.25, 0.35]},
+    {"id": "chingadera", "v": [0.80, 0.60, 0.65, 0.50, 0.70, 0.45]},
+    {"id": "caguamazo", "v": [0.60, 0.55, 0.70, 0.45, 0.30, 0.25]},
+    {"id": "bajarle_dos", "v": [0.10, 0.25, 0.15, 0.10, 0.05, 0.20]},
+    {"id": "sobres", "v": [0.50, 0.45, 0.85, 0.55, 0.25, 0.15]},
+    {"id": "fierro", "v": [0.80, 0.70, 0.75, 0.55, 0.35, 0.40]},
+    {"id": "tamalazo", "v": [0.45, 0.65, 0.60, 0.40, 0.55, 0.35]},
+    {"id": "chilango_mix", "v": [0.85, 0.75, 0.70, 0.60, 0.45, 0.50]},
+    {"id": "cabuleo", "v": [0.55, 0.50, 0.80, 0.65, 0.35, 0.25]},
+    {"id": "alv_fiesta", "v": [0.95, 0.90, 0.85, 0.80, 0.50, 0.45]},
+    {"id": "vato_lounge", "v": [0.30, 0.40, 0.35, 0.30, 0.20, 0.25]},
+    {"id": "nopal_power", "v": [0.50, 0.55, 0.45, 0.50, 0.60, 0.30]},
+    {"id": "morro_glow", "v": [0.60, 0.75, 0.70, 0.75, 0.35, 0.25]}
+  ]
+}
+
+
+{
+  "vibes": [
+    {
+      "id": "bacano",
+      "v": [0.35, 0.50, 0.55, 0.45, 0.25, 0.20],
+      "tags": ["cool_vibes", "buena_onda", "relax"],
+      "desc": "Plan bacano que fluye sin estrés."
+    },
+    {
+      "id": "chevere",
+      "v": [0.30, 0.45, 0.40, 0.35, 0.20, 0.15],
+      "tags": ["agradable", "smooth", "friendly"],
+      "desc": "Todo chévere, ambiente ligero y cordial."
+    },
+    {
+      "id": "parcero",
+      "v": [0.40, 0.50, 0.60, 0.40, 0.25, 0.30],
+      "tags": ["amistad", "compas", "buen_parche"],
+      "desc": "Parceros reunidos para charla infinita."
+    },
+    {
+      "id": "rumba",
+      "v": [0.90, 0.85, 0.80, 0.70, 0.40, 0.35],
+      "tags": ["fiesta", "baile", "perreo"],
+      "desc": "Rumba intensa hasta que amanezca."
+    },
+    {
+      "id": "guayabo",
+      "v": [0.20, 0.30, 0.10, 0.15, 0.05, 0.60],
+      "tags": ["hangover", "resaca", "slow_mood"],
+      "desc": "Guayabo dominguero, cabeza pesada y café."
+    },
+    {
+      "id": "tinto",
+      "v": [0.10, 0.20, 0.25, 0.10, 0.05, 0.15],
+      "tags": ["cafe_negro", "quick_break", "aroma"],
+      "desc": "Tinto caliente despierta la conversación."
+    },
+    {
+      "id": "berraco",
+      "v": [0.75, 0.65, 0.70, 0.50, 0.30, 0.45],
+      "tags": ["valentia", "energia", "sin_miedo"],
+      "desc": "Berraco poder para retos grandes."
+    },
+    {
+      "id": "chimba",
+      "v": [0.60, 0.70, 0.65, 0.75, 0.50, 0.35],
+      "tags": ["excelente", "wow_factor", "top"],
+      "desc": "Plan bien chimba, sorprende y encanta."
+    },
+    {
+      "id": "paila",
+      "v": [0.25, 0.25, 0.15, 0.10, 0.10, 0.70],
+      "tags": ["bad_luck", "oops", "avoid"],
+      "desc": "Situación paila que complica el día."
+    },
+    {
+      "id": "maluco",
+      "v": [0.50, 0.40, 0.35, 0.20, 0.15, 0.55],
+      "tags": ["incómodo", "weird", "off_vibes"],
+      "desc": "Ambiente maluco, algo no cuadra."
+    },
+    {
+      "id": "ñero",
+      "v": [0.65, 0.55, 0.70, 0.45, 0.35, 0.40],
+      "tags": ["calle", "urbano", "graffiti"],
+      "desc": "Ñero style con beats de barrio."
+    },
+    {
+      "id": "charro",
+      "v": [0.45, 0.50, 0.55, 0.55, 0.30, 0.25],
+      "tags": ["chiste", "diversion", "carcajadas"],
+      "desc": "Plan charro que provoca risas espontáneas."
+    },
+    {
+      "id": "ñapa",
+      "v": [0.15, 0.35, 0.45, 0.30, 0.10, 0.20],
+      "tags": ["extra", "bonus", "detalle"],
+      "desc": "Ñapa sorpresa que endulza la cuenta."
+    },
+    {
+      "id": "vaina",
+      "v": [0.50, 0.45, 0.55, 0.50, 0.20, 0.30],
+      "tags": ["cosa", "stuff", "random"],
+      "desc": "Esa vaina rara pero interesante."
+    },
+    {
+      "id": "fresco",
+      "v": [0.10, 0.25, 0.30, 0.20, 0.10, 0.10],
+      "tags": ["calmado", "relax", "sin_estrés"],
+      "desc": "Todo fresco, cero drama y paz."
+    },
+    {
+      "id": "parche",
+      "v": [0.55, 0.60, 0.75, 0.60, 0.40, 0.25],
+      "tags": ["grupo", "plan", "hangout"],
+      "desc": "Parche sólido para tarde improvisada."
+    },
+    {
+      "id": "caleño_flow",
+      "v": [0.70, 0.80, 0.70, 0.65, 0.45, 0.30],
+      "tags": ["salsa", "calor", "brillo"],
+      "desc": "Flow caleño con sabor y movimiento."
+    },
+    {
+      "id": "paisa_power",
+      "v": [0.65, 0.70, 0.60, 0.50, 0.35, 0.40],
+      "tags": ["orgullo", "medallo", "energía"],
+      "desc": "Paisa power impulsa negocios y fiesta."
+    },
+    {
+      "id": "costeño_sabor",
+      "v": [0.75, 0.85, 0.80, 0.65, 0.45, 0.35],
+      "tags": ["caribe", "arena", "alegría"],
+      "desc": "Costeño sabor con brisa y tambor."
+    },
+    {
+      "id": "sabrosura",
+      "v": [0.80, 0.80, 0.75, 0.70, 0.50, 0.30],
+      "tags": ["rico", "goce", "bailar"],
+      "desc": "Sabrosura pura que contagia movimiento."
+    },
+    {
+      "id": "champeta_boom",
+      "v": [0.85, 0.90, 0.85, 0.80, 0.55, 0.40],
+      "tags": ["picó", "baile_caliente", "bass"],
+      "desc": "Champeta boom sacude cada hueso."
+    },
+    {
+      "id": "sancocho_domingo",
+      "v": [0.20, 0.45, 0.30, 0.25, 0.15, 0.25],
+      "tags": ["familia", "caldo", "domingazo"],
+      "desc": "Sancocho dominguero repara cuerpo y alma."
+    },
+    {
+      "id": "pico_fiesta",
+      "v": [0.90, 0.95, 0.80, 0.85, 0.60, 0.40],
+      "tags": ["picotero", "decibeles", "color"],
+      "desc": "Picó fiesta retumba con luces brutales."
+    },
+    {
+      "id": "rolo_chill",
+      "v": [0.20, 0.30, 0.25, 0.15, 0.10, 0.20],
+      "tags": ["bogotá", "cafecito", "niebla"],
+      "desc": "Rolo chill entre neblina y tinto."
+    },
+    {
+      "id": "totazo",
+      "v": [0.70, 0.60, 0.50, 0.40, 0.30, 0.55],
+      "tags": ["golpe", "impacto", "shock"],
+      "desc": "Totazo de emoción que sacude todo."
+    }
+  ],
+  "digest": [
+    {"id": "bacano", "v": [0.35, 0.50, 0.55, 0.45, 0.25, 0.20]},
+    {"id": "chevere", "v": [0.30, 0.45, 0.40, 0.35, 0.20, 0.15]},
+    {"id": "parcero", "v": [0.40, 0.50, 0.60, 0.40, 0.25, 0.30]},
+    {"id": "rumba", "v": [0.90, 0.85, 0.80, 0.70, 0.40, 0.35]},
+    {"id": "guayabo", "v": [0.20, 0.30, 0.10, 0.15, 0.05, 0.60]},
+    {"id": "tinto", "v": [0.10, 0.20, 0.25, 0.10, 0.05, 0.15]},
+    {"id": "berraco", "v": [0.75, 0.65, 0.70, 0.50, 0.30, 0.45]},
+    {"id": "chimba", "v": [0.60, 0.70, 0.65, 0.75, 0.50, 0.35]},
+    {"id": "paila", "v": [0.25, 0.25, 0.15, 0.10, 0.10, 0.70]},
+    {"id": "maluco", "v": [0.50, 0.40, 0.35, 0.20, 0.15, 0.55]},
+    {"id": "ñero", "v": [0.65, 0.55, 0.70, 0.45, 0.35, 0.40]},
+    {"id": "charro", "v": [0.45, 0.50, 0.55, 0.55, 0.30, 0.25]},
+    {"id": "ñapa", "v": [0.15, 0.35, 0.45, 0.30, 0.10, 0.20]},
+    {"id": "vaina", "v": [0.50, 0.45, 0.55, 0.50, 0.20, 0.30]},
+    {"id": "fresco", "v": [0.10, 0.25, 0.30, 0.20, 0.10, 0.10]},
+    {"id": "parche", "v": [0.55, 0.60, 0.75, 0.60, 0.40, 0.25]},
+    {"id": "caleño_flow", "v": [0.70, 0.80, 0.70, 0.65, 0.45, 0.30]},
+    {"id": "paisa_power", "v": [0.65, 0.70, 0.60, 0.50, 0.35, 0.40]},
+    {"id": "costeño_sabor", "v": [0.75, 0.85, 0.80, 0.65, 0.45, 0.35]},
+    {"id": "sabrosura", "v": [0.80, 0.80, 0.75, 0.70, 0.50, 0.30]},
+    {"id": "champeta_boom", "v": [0.85, 0.90, 0.85, 0.80, 0.55, 0.40]},
+    {"id": "sancocho_domingo", "v": [0.20, 0.45, 0.30, 0.25, 0.15, 0.25]},
+    {"id": "pico_fiesta", "v": [0.90, 0.95, 0.80, 0.85, 0.60, 0.40]},
+    {"id": "rolo_chill", "v": [0.20, 0.30, 0.25, 0.15, 0.10, 0.20]},
+    {"id": "totazo", "v": [0.70, 0.60, 0.50, 0.40, 0.30, 0.55]}
+  ]
+}
+
+{
+  "vibes": [
+    {
+      "id": "morra_bazar",
+      "v": [0.55, 0.60, 0.65, 0.45, 0.35, 0.25],
+      "tags": ["shopping", "ropa_vintage", "morras"],
+      "desc": "Bazar morra vibra entre percheros y risas."
+    },
+    {
+      "id": "compa_corner",
+      "v": [0.40, 0.45, 0.50, 0.30, 0.20, 0.20],
+      "tags": ["amistad", "cheves", "plaza"],
+      "desc": "Rincón compa para cheve y plática."
+    },
+    {
+      "id": "alv_plan",
+      "v": [0.90, 0.80, 0.85, 0.75, 0.50, 0.40],
+      "tags": ["spontaneous", "desmadre", "zero_rules"],
+      "desc": "Plan alv, se arma y explota."
+    },
+    {
+      "id": "pura_vibra",
+      "v": [0.30, 0.50, 0.45, 0.40, 0.25, 0.20],
+      "tags": ["positive", "clean_energy", "good_times"],
+      "desc": "Pura vibra buena y ambientes claros."
+    },
+    {
+      "id": "andamos_fresh",
+      "v": [0.50, 0.55, 0.80, 0.60, 0.30, 0.30],
+      "tags": ["street_walk", "on_the_move", "urban"],
+      "desc": "Andamos fresh recorriendo la city."
+    },
+    {
+      "id": "guey_zone",
+      "v": [0.70, 0.75, 0.70, 0.55, 0.45, 0.35],
+      "tags": ["cotorreo", "compas", "slang"],
+      "desc": "Zona güey para cotorreo sin filtro."
+    },
+    {
+      "id": "fierro_road",
+      "v": [0.80, 0.70, 0.75, 0.60, 0.35, 0.45],
+      "tags": ["roadtrip", "corridos", "acceleration"],
+      "desc": "Fierro road rugiendo por la sierra."
+    },
+    {
+      "id": "jale_hub",
+      "v": [0.45, 0.40, 0.65, 0.35, 0.20, 0.50],
+      "tags": ["work", "co_work", "productive"],
+      "desc": "Jale hub con café y laptops."
+    },
+    {
+      "id": "peda_epica",
+      "v": [0.85, 0.90, 0.80, 0.70, 0.55, 0.35],
+      "tags": ["night_out", "tequila", "beats"],
+      "desc": "Peda épica hasta perder la voz."
+    },
+    {
+      "id": "neta_spot",
+      "v": [0.20, 0.25, 0.35, 0.20, 0.10, 0.15],
+      "tags": ["honest_talk", "truth", "deep_chat"],
+      "desc": "La neta spot para verdades crudas."
+    },
+    {
+      "id": "vato_club",
+      "v": [0.60, 0.55, 0.50, 0.45, 0.30, 0.30],
+      "tags": ["swagger", "low_light", "beats"],
+      "desc": "Club vato con flow discreto."
+    },
+    {
+      "id": "pacas_party",
+      "v": [0.75, 0.80, 0.70, 0.65, 0.50, 0.40],
+      "tags": ["cash_rain", "luxury", "bling"],
+      "desc": "Pacas party brillando billete en aire."
+    },
+    {
+      "id": "carnal_flow",
+      "v": [0.50, 0.45, 0.55, 0.40, 0.25, 0.25],
+      "tags": ["brotherhood", "smooth", "groove"],
+      "desc": "Carnal flow suelto y solidario."
+    },
+    {
+      "id": "chamba_spot",
+      "v": [0.35, 0.30, 0.40, 0.25, 0.15, 0.55],
+      "tags": ["office", "deadline", "focus"],
+      "desc": "Chamba spot donde la tarea arde."
+    },
+    {
+      "id": "lana_lounge",
+      "v": [0.25, 0.30, 0.35, 0.30, 0.20, 0.20],
+      "tags": ["finance", "meetup", "invest"],
+      "desc": "Lana lounge discute inversiones relajadas."
+    },
+    {
+      "id": "padre_vibes",
+      "v": [0.30, 0.40, 0.45, 0.50, 0.20, 0.15],
+      "tags": ["cool", "classic", "retro"],
+      "desc": "Padre vibes retro y elegantes."
+    },
+    {
+      "id": "gacho_mood",
+      "v": [0.60, 0.50, 0.30, 0.25, 0.15, 0.55],
+      "tags": ["awkward", "fail", "ugh"],
+      "desc": "Ambiente gacho; algo se siente chueco."
+    },
+    {
+      "id": "simon_sitio",
+      "v": [0.20, 0.25, 0.50, 0.30, 0.10, 0.20],
+      "tags": ["agreement", "easygoing", "yes"],
+      "desc": "Simón sitio, todo fluye sin pena."
+    },
+    {
+      "id": "a_huevo",
+      "v": [0.70, 0.60, 0.80, 0.65, 0.35, 0.25],
+      "tags": ["determined", "sure", "go_big"],
+      "desc": "A huevo: decisión firme y acción."
+    },
+    {
+      "id": "cotorreo_live",
+      "v": [0.75, 0.65, 0.85, 0.55, 0.30, 0.30],
+      "tags": ["banter", "stories", "laughs"],
+      "desc": "Cotorreo live con historias infinitas."
+    },
+    {
+      "id": "que_pedo",
+      "v": [0.80, 0.70, 0.65, 0.60, 0.40, 0.45],
+      "tags": ["surprise", "confusion", "moment"],
+      "desc": "¿Qué pedo? vibra de shock divertido."
+    },
+    {
+      "id": "tranqui_zone",
+      "v": [0.10, 0.20, 0.25, 0.15, 0.05, 0.10],
+      "tags": ["relax", "soft_music", "chill"],
+      "desc": "Tranqui zone para bajar revoluciones."
+    },
+    {
+      "id": "agusto_chill",
+      "v": [0.15, 0.35, 0.30, 0.25, 0.10, 0.15],
+      "tags": ["comfy", "sofa", "easy_breezy"],
+      "desc": "A gusto chill, sofá y cafecito."
+    },
+    {
+      "id": "rollo_bueno",
+      "v": [0.40, 0.35, 0.75, 0.50, 0.20, 0.20],
+      "tags": ["good_chat", "ideas", "flow"],
+      "desc": "Buen rollo impulsa ideas frescas."
+    },
+    {
+      "id": "sale_vale",
+      "v": [0.45, 0.40, 0.85, 0.55, 0.25, 0.15],
+      "tags": ["lets_go", "quick", "move"],
+      "desc": "Sale vale: arranque rápido sin dudas."
+    }
+  ],
+  "digest": [
+    {"id": "morra_bazar", "v": [0.55, 0.60, 0.65, 0.45, 0.35, 0.25]},
+    {"id": "compa_corner", "v": [0.40, 0.45, 0.50, 0.30, 0.20, 0.20]},
+    {"id": "alv_plan", "v": [0.90, 0.80, 0.85, 0.75, 0.50, 0.40]},
+    {"id": "pura_vibra", "v": [0.30, 0.50, 0.45, 0.40, 0.25, 0.20]},
+    {"id": "andamos_fresh", "v": [0.50, 0.55, 0.80, 0.60, 0.30, 0.30]},
+    {"id": "guey_zone", "v": [0.70, 0.75, 0.70, 0.55, 0.45, 0.35]},
+    {"id": "fierro_road", "v": [0.80, 0.70, 0.75, 0.60, 0.35, 0.45]},
+    {"id": "jale_hub", "v": [0.45, 0.40, 0.65, 0.35, 0.20, 0.50]},
+    {"id": "peda_epica", "v": [0.85, 0.90, 0.80, 0.70, 0.55, 0.35]},
+    {"id": "neta_spot", "v": [0.20, 0.25, 0.35, 0.20, 0.10, 0.15]},
+    {"id": "vato_club", "v": [0.60, 0.55, 0.50, 0.45, 0.30, 0.30]},
+    {"id": "pacas_party", "v": [0.75, 0.80, 0.70, 0.65, 0.50, 0.40]},
+    {"id": "carnal_flow", "v": [0.50, 0.45, 0.55, 0.40, 0.25, 0.25]},
+    {"id": "chamba_spot", "v": [0.35, 0.30, 0.40, 0.25, 0.15, 0.55]},
+    {"id": "lana_lounge", "v": [0.25, 0.30, 0.35, 0.30, 0.20, 0.20]},
+    {"id": "padre_vibes", "v": [0.30, 0.40, 0.45, 0.50, 0.20, 0.15]},
+    {"id": "gacho_mood", "v": [0.60, 0.50, 0.30, 0.25, 0.15, 0.55]},
+    {"id": "simon_sitio", "v": [0.20, 0.25, 0.50, 0.30, 0.10, 0.20]},
+    {"id": "a_huevo", "v": [0.70, 0.60, 0.80, 0.65, 0.35, 0.25]},
+    {"id": "cotorreo_live", "v": [0.75, 0.65, 0.85, 0.55, 0.30, 0.30]},
+    {"id": "que_pedo", "v": [0.80, 0.70, 0.65, 0.60, 0.40, 0.45]},
+    {"id": "tranqui_zone", "v": [0.10, 0.20, 0.25, 0.15, 0.05, 0.10]},
+    {"id": "agusto_chill", "v": [0.15, 0.35, 0.30, 0.25, 0.10, 0.15]},
+    {"id": "rollo_bueno", "v": [0.40, 0.35, 0.75, 0.50, 0.20, 0.20]},
+    {"id": "sale_vale", "v": [0.45, 0.40, 0.85, 0.55, 0.25, 0.15]}
+  ]
+}
+
+{
+  "vibes": [
+    {
+      "id": "yall_hangout",
+      "v": [0.40, 0.35, 0.50, 0.30, 0.15, 0.20],
+      "tags": ["texas_friends", "casual", "porch_chats"],
+      "desc": "Y’all hangout con sillas plegables y cheve."
+    },
+    {
+      "id": "howdy_cafe",
+      "v": [0.20, 0.25, 0.30, 0.20, 0.30, 0.15],
+      "tags": ["greeting", "latte", "cowboy_hats"],
+      "desc": "Howdy café mezcla vaquero con espresso."
+    },
+    {
+      "id": "fixin_to_feast",
+      "v": [0.50, 0.55, 0.60, 0.45, 0.25, 0.35],
+      "tags": ["bbq_prep", "family_style", "big_plate"],
+      "desc": "Fixin’ to feast antes del gran asado."
+    },
+    {
+      "id": "yeehaw_rodeo",
+      "v": [0.85, 0.80, 0.75, 0.65, 0.60, 0.45],
+      "tags": ["bullride", "boots", "dusty_arena"],
+      "desc": "Yee-haw rodeo truena con adrenalina vaquera."
+    },
+    {
+      "id": "lone_star_night",
+      "v": [0.70, 0.65, 0.55, 0.50, 0.40, 0.30],
+      "tags": ["tex_mex", "neon_bar", "live_band"],
+      "desc": "Noche tejana iluminada por sola estrella."
+    },
+    {
+      "id": "big_texas_bbq",
+      "v": [0.60, 0.70, 0.50, 0.45, 0.35, 0.40],
+      "tags": ["smoked_meat", "pitmaster", "line_long"],
+      "desc": "Big Texas BBQ huele a mezquite ahumado."
+    },
+    {
+      "id": "hella_chill",
+      "v": [0.15, 0.20, 0.40, 0.40, 0.15, 0.10],
+      "tags": ["norcal", "lofi", "hoodie_weather"],
+      "desc": "Hella chill tarde con bruma Golden Gate."
+    },
+    {
+      "id": "hella_hype",
+      "v": [0.80, 0.90, 0.85, 0.80, 0.50, 0.35],
+      "tags": ["norcal_rave", "led_gloves", "drops"],
+      "desc": "Hella hype rave sacude warehouse oaklandés."
+    },
+    {
+      "id": "gnarly_wave",
+      "v": [0.65, 0.75, 0.80, 0.70, 0.40, 0.30],
+      "tags": ["surfers", "pacific_swells", "salty_air"],
+      "desc": "Surf gnarly sobre ola que ruge fuerte."
+    },
+    {
+      "id": "stoked_sunset",
+      "v": [0.40, 0.60, 0.70, 0.55, 0.30, 0.25],
+      "tags": ["beach_fire", "ukulele", "orange_sky"],
+      "desc": "Stoked sunset vibra entre palmeras y fogata."
+    },
+    {
+      "id": "rad_zone",
+      "v": [0.55, 0.65, 0.60, 0.50, 0.35, 0.30],
+      "tags": ["80s_flash", "skatepark", "high_fives"],
+      "desc": "Rad zone con trucos y neón vintage."
+    },
+    {
+      "id": "dude_spot",
+      "v": [0.35, 0.40, 0.55, 0.40, 0.20, 0.20],
+      "tags": ["soCal", "boardshorts", "fish_tacos"],
+      "desc": "Dude spot para relajarse después de surf."
+    },
+    {
+      "id": "bro_sesh",
+      "v": [0.45, 0.50, 0.75, 0.60, 0.25, 0.25],
+      "tags": ["gym_bros", "protein", "set_reps"],
+      "desc": "Bro sesh con pesas y bromas continuas."
+    },
+    {
+      "id": "tight_scene",
+      "v": [0.50, 0.55, 0.40, 0.60, 0.30, 0.35],
+      "tags": ["underground_show", "crowded", "mosh"],
+      "desc": "Tight scene repleto de riffs comprimidos."
+    },
+    {
+      "id": "bomb_burrito",
+      "v": [0.70, 0.80, 0.65, 0.70, 0.45, 0.35],
+      "tags": ["mission_style", "extra_guac", "late_night"],
+      "desc": "Bomb burrito gigantesco cura tras la fiesta."
+    },
+    {
+      "id": "legit_market",
+      "v": [0.30, 0.50, 0.45, 0.35, 0.25, 0.25],
+      "tags": ["farmers", "artisan", "socal"],
+      "desc": "Legit market con productos orgánicos y música."
+    },
+    {
+      "id": "sick_skate",
+      "v": [0.75, 0.70, 0.80, 0.65, 0.35, 0.40],
+      "tags": ["halfpipe", "kickflip", "palm_trees"],
+      "desc": "Sick skate session quema ruedas y suelas."
+    },
+    {
+      "id": "no_cap_lounge",
+      "v": [0.25, 0.30, 0.40, 0.50, 0.20, 0.15],
+      "tags": ["truth_only", "lofi_beats", "beanbags"],
+      "desc": "No-cap lounge, honest talk bajo luces suaves."
+    },
+    {
+      "id": "lit_block",
+      "v": [0.85, 0.90, 0.80, 0.80, 0.55, 0.40],
+      "tags": ["block_party", "speakers", "summer_night"],
+      "desc": "Lit block party en barrio angelino vibrante."
+    },
+    {
+      "id": "as_if_diner",
+      "v": [0.30, 0.60, 0.50, 0.70, 0.60, 0.25],
+      "tags": ["valley_girl", "milkshake", "retro_booth"],
+      "desc": "As-if diner destila glamour noventero chill."
+    },
+    {
+      "id": "kook_corner",
+      "v": [0.55, 0.65, 0.70, 0.75, 0.45, 0.30],
+      "tags": ["newbie_surfer", "wipeout", "laughs"],
+      "desc": "Kook corner celebra caídas con carcajadas."
+    },
+    {
+      "id": "bet_pop_up",
+      "v": [0.40, 0.45, 0.80, 0.55, 0.25, 0.25],
+      "tags": ["flash_sale", "streetwear", "ig_alert"],
+      "desc": "Bet pop-up aparece y desaparece en horas."
+    },
+    {
+      "id": "on_god_grind",
+      "v": [0.60, 0.50, 0.85, 0.60, 0.30, 0.40],
+      "tags": ["hustle", "startup", "sacramento"],
+      "desc": "On-God grind trabaja duro sin excusas."
+    },
+    {
+      "id": "chillax_rooftop",
+      "v": [0.20, 0.35, 0.45, 0.35, 0.15, 0.20],
+      "tags": ["cityscape", "hammock", "sundowner"],
+      "desc": "Chillax rooftop con brisa y beats suaves."
+    },
+    {
+      "id": "cali_dreaming",
+      "v": [0.25, 0.45, 0.50, 0.50, 0.30, 0.20],
+      "tags": ["palm_lines", "convertible", "soft_rock"],
+      "desc": "Cali dreaming bajo palmeras y cielo rosado."
+    }
+  ],
+  "digest": [
+    {"id": "yall_hangout", "v": [0.40, 0.35, 0.50, 0.30, 0.15, 0.20]},
+    {"id": "howdy_cafe", "v": [0.20, 0.25, 0.30, 0.20, 0.30, 0.15]},
+    {"id": "fixin_to_feast", "v": [0.50, 0.55, 0.60, 0.45, 0.25, 0.35]},
+    {"id": "yeehaw_rodeo", "v": [0.85, 0.80, 0.75, 0.65, 0.60, 0.45]},
+    {"id": "lone_star_night", "v": [0.70, 0.65, 0.55, 0.50, 0.40, 0.30]},
+    {"id": "big_texas_bbq", "v": [0.60, 0.70, 0.50, 0.45, 0.35, 0.40]},
+    {"id": "hella_chill", "v": [0.15, 0.20, 0.40, 0.40, 0.15, 0.10]},
+    {"id": "hella_hype", "v": [0.80, 0.90, 0.85, 0.80, 0.50, 0.35]},
+    {"id": "gnarly_wave", "v": [0.65, 0.75, 0.80, 0.70, 0.40, 0.30]},
+    {"id": "stoked_sunset", "v": [0.40, 0.60, 0.70, 0.55, 0.30, 0.25]},
+    {"id": "rad_zone", "v": [0.55, 0.65, 0.60, 0.50, 0.35, 0.30]},
+    {"id": "dude_spot", "v": [0.35, 0.40, 0.55, 0.40, 0.20, 0.20]},
+    {"id": "bro_sesh", "v": [0.45, 0.50, 0.75, 0.60, 0.25, 0.25]},
+    {"id": "tight_scene", "v": [0.50, 0.55, 0.40, 0.60, 0.30, 0.35]},
+    {"id": "bomb_burrito", "v": [0.70, 0.80, 0.65, 0.70, 0.45, 0.35]},
+    {"id": "legit_market", "v": [0.30, 0.50, 0.45, 0.35, 0.25, 0.25]},
+    {"id": "sick_skate", "v": [0.75, 0.70, 0.80, 0.65, 0.35, 0.40]},
+    {"id": "no_cap_lounge", "v": [0.25, 0.30, 0.40, 0.50, 0.20, 0.15]},
+    {"id": "lit_block", "v": [0.85, 0.90, 0.80, 0.80, 0.55, 0.40]},
+    {"id": "as_if_diner", "v": [0.30, 0.60, 0.50, 0.70, 0.60, 0.25]},
+    {"id": "kook_corner", "v": [0.55, 0.65, 0.70, 0.75, 0.45, 0.30]},
+    {"id": "bet_pop_up", "v": [0.40, 0.45, 0.80, 0.55, 0.25, 0.25]},
+    {"id": "on_god_grind", "v": [0.60, 0.50, 0.85, 0.60, 0.30, 0.40]},
+    {"id": "chillax_rooftop", "v": [0.20, 0.35, 0.45, 0.35, 0.15, 0.20]},
+    {"id": "cali_dreaming", "v": [0.25, 0.45, 0.50, 0.50, 0.30, 0.20]}
+  ]
+}
+
+
+{
+  "vibes": [
+    {
+      "id": "finna_flow",
+      "v": [0.55, 0.60, 0.85, 0.50, 0.30, 0.40],
+      "tags": ["ready_move", "spontaneous", "planless"],
+      "desc": "Finna flow preparando salto repentino."
+    },
+    {
+      "id": "aint_scene",
+      "v": [0.45, 0.50, 0.40, 0.35, 0.25, 0.20],
+      "tags": ["rebel", "casual_neg", "chill"],
+      "desc": "Ain't scene vibra de rebeldía tranquila."
+    },
+    {
+      "id": "gonna_grind",
+      "v": [0.60, 0.55, 0.70, 0.40, 0.20, 0.35],
+      "tags": ["hustle", "determined", "next_step"],
+      "desc": "Gonna grind empuja tareas sin pausa."
+    },
+    {
+      "id": "wanna_wave",
+      "v": [0.35, 0.45, 0.60, 0.45, 0.20, 0.25],
+      "tags": ["desire", "soft_energy", "upbeat"],
+      "desc": "Wanna wave eleva ánimos con suavidad."
+    },
+    {
+      "id": "lit_party",
+      "v": [0.90, 0.95, 0.80, 0.85, 0.55, 0.40],
+      "tags": ["turn_up", "neon", "bass"],
+      "desc": "Lit party explota luces y beats."
+    },
+    {
+      "id": "vibe_station",
+      "v": [0.25, 0.50, 0.45, 0.55, 0.30, 0.20],
+      "tags": ["good_vibes", "playlist", "hangout"],
+      "desc": "Estación vibe con tracks feel-good continuos."
+    },
+    {
+      "id": "drip_corner",
+      "v": [0.50, 0.75, 0.55, 0.70, 0.65, 0.30],
+      "tags": ["fashion", "outfit_check", "mirror"],
+      "desc": "Drip corner presume fit impecable diario."
+    },
+    {
+      "id": "goat_stage",
+      "v": [0.80, 0.85, 0.65, 0.90, 0.45, 0.35],
+      "tags": ["legend", "highlight", "crowd_cheer"],
+      "desc": "GOAT stage aplaude talento máximo."
+    },
+    {
+      "id": "cap_story",
+      "v": [0.60, 0.55, 0.50, 0.80, 0.35, 0.30],
+      "tags": ["exaggerate", "brag", "sus"],
+      "desc": "Cap story presume logros dudosos divertidos."
+    },
+    {
+      "id": "bet_spot",
+      "v": [0.45, 0.50, 0.85, 0.55, 0.25, 0.25],
+      "tags": ["sure_thing", "fast_plan", "letgo"],
+      "desc": "Bet spot, acuerdo rápido y acción."
+    },
+    {
+      "id": "shawty_lounge",
+      "v": [0.30, 0.40, 0.35, 0.45, 0.30, 0.20],
+      "tags": ["flirt", "soft_lights", "rnb"],
+      "desc": "Shawty lounge mezcla coqueteo y r&b."
+    },
+    {
+      "id": "flex_area",
+      "v": [0.70, 0.80, 0.60, 0.75, 0.60, 0.35],
+      "tags": ["showoff", "gym_mirror", "brag"],
+      "desc": "Flex area exhibe logros y bíceps."
+    },
+    {
+      "id": "ghosting_cafe",
+      "v": [0.20, 0.25, 0.15, 0.10, 0.10, 0.60],
+      "tags": ["quiet", "vanish", "solo"],
+      "desc": "Ghosting café donde mensajes se esfuman."
+    },
+    {
+      "id": "simp_corner",
+      "v": [0.40, 0.45, 0.55, 0.65, 0.35, 0.20],
+      "tags": ["admiration", "overgive", "hearts"],
+      "desc": "Simp corner entrega halagos sin medida."
+    },
+    {
+      "id": "bussin_plate",
+      "v": [0.65, 0.90, 0.60, 0.70, 0.50, 0.25],
+      "tags": ["delicious", "foodie", "umami"],
+      "desc": "Bussin' plate rompe papilas de sabor."
+    },
+    {
+      "id": "ride_or_die",
+      "v": [0.75, 0.65, 0.70, 0.60, 0.40, 0.45],
+      "tags": ["loyalty", "partnership", "roadtrip"],
+      "desc": "Ride or die amistad sin condiciones."
+    },
+    {
+      "id": "stan_zone",
+      "v": [0.50, 0.70, 0.55, 0.85, 0.45, 0.35],
+      "tags": ["superfan", "fandom", "merch"],
+      "desc": "Stan zone colecciona pósters y streams."
+    },
+    {
+      "id": "tea_spill",
+      "v": [0.35, 0.45, 0.65, 0.80, 0.30, 0.25],
+      "tags": ["gossip", "hot_topic", "drama"],
+      "desc": "Tea spill suelta chisme candente explosivo."
+    },
+    {
+      "id": "woke_hub",
+      "v": [0.25, 0.35, 0.40, 0.55, 0.20, 0.30],
+      "tags": ["aware", "activism", "discourse"],
+      "desc": "Woke hub debate justicia y cambios."
+    },
+    {
+      "id": "no_cap_chill",
+      "v": [0.20, 0.25, 0.30, 0.10, 0.10, 0.15],
+      "tags": ["truthful", "relax", "open"],
+      "desc": "No cap chill, charlas honestas y mates."
+    },
+    {
+      "id": "fire_session",
+      "v": [0.80, 0.85, 0.70, 0.75, 0.50, 0.35],
+      "tags": ["hot_tracks", "energy", "studio"],
+      "desc": "Fire session graba versos incandescentes."
+    },
+    {
+      "id": "dope_deck",
+      "v": [0.55, 0.60, 0.65, 0.60, 0.35, 0.25],
+      "tags": ["skate", "fresh", "graffiti"],
+      "desc": "Dope deck rueda sobre arte callejero."
+    },
+    {
+      "id": "iced_out",
+      "v": [0.60, 0.90, 0.55, 0.70, 0.80, 0.30],
+      "tags": ["bling", "diamonds", "flash"],
+      "desc": "Iced out reluce cadenas y anillos."
+    },
+    {
+      "id": "savage_spot",
+      "v": [0.85, 0.70, 0.65, 0.60, 0.40, 0.50],
+      "tags": ["bold", "fearless", "roast"],
+      "desc": "Savage spot sin filtros ni piedad."
+    },
+    {
+      "id": "real_one_bar",
+      "v": [0.30, 0.40, 0.35, 0.25, 0.20, 0.20],
+      "tags": ["authentic", "loyal", "homies"],
+      "desc": "Real one bar reúne amistades genuinas."
+    }
+  ],
+  "digest": [
+    {"id": "finna_flow", "v": [0.55, 0.60, 0.85, 0.50, 0.30, 0.40]},
+    {"id": "aint_scene", "v": [0.45, 0.50, 0.40, 0.35, 0.25, 0.20]},
+    {"id": "gonna_grind", "v": [0.60, 0.55, 0.70, 0.40, 0.20, 0.35]},
+    {"id": "wanna_wave", "v": [0.35, 0.45, 0.60, 0.45, 0.20, 0.25]},
+    {"id": "lit_party", "v": [0.90, 0.95, 0.80, 0.85, 0.55, 0.40]},
+    {"id": "vibe_station", "v": [0.25, 0.50, 0.45, 0.55, 0.30, 0.20]},
+    {"id": "drip_corner", "v": [0.50, 0.75, 0.55, 0.70, 0.65, 0.30]},
+    {"id": "goat_stage", "v": [0.80, 0.85, 0.65, 0.90, 0.45, 0.35]},
+    {"id": "cap_story", "v": [0.60, 0.55, 0.50, 0.80, 0.35, 0.30]},
+    {"id": "bet_spot", "v": [0.45, 0.50, 0.85, 0.55, 0.25, 0.25]},
+    {"id": "shawty_lounge", "v": [0.30, 0.40, 0.35, 0.45, 0.30, 0.20]},
+    {"id": "flex_area", "v": [0.70, 0.80, 0.60, 0.75, 0.60, 0.35]},
+    {"id": "ghosting_cafe", "v": [0.20, 0.25, 0.15, 0.10, 0.10, 0.60]},
+    {"id": "simp_corner", "v": [0.40, 0.45, 0.55, 0.65, 0.35, 0.20]},
+    {"id": "bussin_plate", "v": [0.65, 0.90, 0.60, 0.70, 0.50, 0.25]},
+    {"id": "ride_or_die", "v": [0.75, 0.65, 0.70, 0.60, 0.40, 0.45]},
+    {"id": "stan_zone", "v": [0.50, 0.70, 0.55, 0.85, 0.45, 0.35]},
+    {"id": "tea_spill", "v": [0.35, 0.45, 0.65, 0.80, 0.30, 0.25]},
+    {"id": "woke_hub", "v": [0.25, 0.35, 0.40, 0.55, 0.20, 0.30]},
+    {"id": "no_cap_chill", "v": [0.20, 0.25, 0.30, 0.10, 0.10, 0.15]},
+    {"id": "fire_session", "v": [0.80, 0.85, 0.70, 0.75, 0.50, 0.35]},
+    {"id": "dope_deck", "v": [0.55, 0.60, 0.65, 0.60, 0.35, 0.25]},
+    {"id": "iced_out", "v": [0.60, 0.90, 0.55, 0.70, 0.80, 0.30]},
+    {"id": "savage_spot", "v": [0.85, 0.70, 0.65, 0.60, 0.40, 0.50]},
+    {"id": "real_one_bar", "v": [0.30, 0.40, 0.35, 0.25, 0.20, 0.20]}
+  ]
+}
+{
+  "vibes": [
+    {
+      "id": "quilombo_fiesta",
+      "v": [0.95, 0.85, 0.80, 0.70, 0.50, 0.40],
+      "tags": ["descontrol", "cumbia", "luces_neón"],
+      "desc": "Quilombo fiesta sacude el barrio toda la noche."
+    },
+    {
+      "id": "che_mate",
+      "v": [0.15, 0.25, 0.35, 0.20, 0.10, 0.15],
+      "tags": ["yerba", "termo", "charla_tranquila"],
+      "desc": "Che, mate compartido y charla tranqui."
+    },
+    {
+      "id": "bondi_beat",
+      "v": [0.55, 0.60, 0.65, 0.45, 0.30, 0.50],
+      "tags": ["colectivo", "boombox", "grafitti"],
+      "desc": "Bondi beat recorre avenidas con ritmo callejero."
+    },
+    {
+      "id": "laburo_mode",
+      "v": [0.40, 0.35, 0.70, 0.25, 0.15, 0.55],
+      "tags": ["oficina", "deadline", "cafecito"],
+      "desc": "Laburo mode enfocado con cafecito y planillas."
+    },
+    {
+      "id": "asado_domingo",
+      "v": [0.30, 0.55, 0.45, 0.35, 0.40, 0.20],
+      "tags": ["parrilla", "familia", "chimichurri"],
+      "desc": "Asado domingo huele a brasas y charla."
+    },
+    {
+      "id": "birra_termo",
+      "v": [0.60, 0.70, 0.55, 0.50, 0.35, 0.30],
+      "tags": ["lata_fría", "plaza", "after"],
+      "desc": "Birra termo enfría la tarde en la plaza."
+    },
+    {
+      "id": "posta_spot",
+      "v": [0.25, 0.45, 0.50, 0.55, 0.30, 0.25],
+      "tags": ["real_talk", "sin_verso", "confianza"],
+      "desc": "Posta spot para verdades sin filtro."
+    },
+    {
+      "id": "piola_plaza",
+      "v": [0.35, 0.40, 0.60, 0.40, 0.20, 0.20],
+      "tags": ["relax", "skaters", "mates"],
+      "desc": "Plaza piola vibra con skaters y mates."
+    },
+    {
+      "id": "facha_runway",
+      "v": [0.50, 0.80, 0.55, 0.65, 0.70, 0.30],
+      "tags": ["outfits", "selfie", "moda"],
+      "desc": "Facha runway muestra drip porteño impecable."
+    },
+    {
+      "id": "guita_grind",
+      "v": [0.65, 0.55, 0.75, 0.45, 0.25, 0.40],
+      "tags": ["ahorro", "freelance", "monedas"],
+      "desc": "Guita grind suma mangos con cada changa."
+    },
+    {
+      "id": "changa_corner",
+      "v": [0.45, 0.50, 0.70, 0.30, 0.20, 0.45],
+      "tags": ["laburo_rapido", "herramientas", "vecindario"],
+      "desc": "Changa corner ofrece manos rápidas y mate."
+    },
+    {
+      "id": "canchero_bar",
+      "v": [0.60, 0.65, 0.55, 0.60, 0.45, 0.25],
+      "tags": ["confianza", "look", "cocktails"],
+      "desc": "Bar canchero deslumbra con tragos y actitud."
+    },
+    {
+      "id": "fernet_noche",
+      "v": [0.75, 0.85, 0.70, 0.65, 0.50, 0.35],
+      "tags": ["cola", "vaso_largo", "cuarteto"],
+      "desc": "Fernet noche arranca con cuarteto y brindis."
+    },
+    {
+      "id": "cumbia_villa",
+      "v": [0.80, 0.90, 0.75, 0.80, 0.55, 0.40],
+      "tags": ["bailongo", "bombos", "pasitos"],
+      "desc": "Cumbia villa late fuerte en el pasillo."
+    },
+    {
+      "id": "fiaca_sillon",
+      "v": [0.05, 0.15, 0.10, 0.05, 0.05, 0.20],
+      "tags": ["pijama", "maraton_series", "reposera"],
+      "desc": "Fiaca sillón cancela planes y prende series."
+    },
+    {
+      "id": "mufa_cafe",
+      "v": [0.30, 0.25, 0.20, 0.15, 0.10, 0.60],
+      "tags": ["mala_racha", "lluvia", "suspiro"],
+      "desc": "Café mufa intenta levantar el ánimo."
+    },
+    {
+      "id": "banca_amigo",
+      "v": [0.20, 0.35, 0.40, 0.25, 0.15, 0.15],
+      "tags": ["espera", "compa", "paciencia"],
+      "desc": "Bancá amigo mientras llega la ronda."
+    },
+    {
+      "id": "corta_decision",
+      "v": [0.70, 0.40, 0.85, 0.55, 0.25, 0.30],
+      "tags": ["sin_vuelta", "rapidez", "determinacion"],
+      "desc": "Corta: decisión firme y sin rodeos."
+    },
+    {
+      "id": "re_bueno",
+      "v": [0.25, 0.55, 0.50, 0.60, 0.35, 0.20],
+      "tags": ["muy", "positivo", "aplauso"],
+      "desc": "Re bueno ambiente con onda sobresaliente."
+    },
+    {
+      "id": "cheto_lounge",
+      "v": [0.50, 0.70, 0.45, 0.55, 0.60, 0.35],
+      "tags": ["lujo", "dj_house", "afteroffice"],
+      "desc": "Cheto lounge mezcla sushi y deep house."
+    },
+    {
+      "id": "al_toque",
+      "v": [0.40, 0.45, 0.90, 0.50, 0.25, 0.25],
+      "tags": ["rápido", "express", "sin_espera"],
+      "desc": "Al toque plan se arma en minutos."
+    },
+    {
+      "id": "piba_club",
+      "v": [0.60, 0.65, 0.55, 0.60, 0.40, 0.30],
+      "tags": ["girl_power", "rnb", "cocktails"],
+      "desc": "Piba club baila con glitter y pop."
+    },
+    {
+      "id": "mango_mercado",
+      "v": [0.35, 0.50, 0.45, 0.30, 0.20, 0.35],
+      "tags": ["feria", "ofertas", "regateo"],
+      "desc": "Mercado de mangos y billetes contados."
+    },
+    {
+      "id": "chino_run",
+      "v": [0.45, 0.55, 0.70, 0.40, 0.30, 0.25],
+      "tags": ["almacen24h", "snacks", "apuro"],
+      "desc": "Chino run resuelve antojo de madrugada."
+    },
+    {
+      "id": "boludo_mood",
+      "v": [0.50, 0.45, 0.35, 0.40, 0.25, 0.30],
+      "tags": ["torpeza", "risas", "auto_roast"],
+      "desc": "Boludo mood mete la pata y ríe."
+    }
+  ],
+  "digest": [
+    {"id": "quilombo_fiesta", "v": [0.95, 0.85, 0.80, 0.70, 0.50, 0.40]},
+    {"id": "che_mate", "v": [0.15, 0.25, 0.35, 0.20, 0.10, 0.15]},
+    {"id": "bondi_beat", "v": [0.55, 0.60, 0.65, 0.45, 0.30, 0.50]},
+    {"id": "laburo_mode", "v": [0.40, 0.35, 0.70, 0.25, 0.15, 0.55]},
+    {"id": "asado_domingo", "v": [0.30, 0.55, 0.45, 0.35, 0.40, 0.20]},
+    {"id": "birra_termo", "v": [0.60, 0.70, 0.55, 0.50, 0.35, 0.30]},
+    {"id": "posta_spot", "v": [0.25, 0.45, 0.50, 0.55, 0.30, 0.25]},
+    {"id": "piola_plaza", "v": [0.35, 0.40, 0.60, 0.40, 0.20, 0.20]},
+    {"id": "facha_runway", "v": [0.50, 0.80, 0.55, 0.65, 0.70, 0.30]},
+    {"id": "guita_grind", "v": [0.65, 0.55, 0.75, 0.45, 0.25, 0.40]},
+    {"id": "changa_corner", "v": [0.45, 0.50, 0.70, 0.30, 0.20, 0.45]},
+    {"id": "canchero_bar", "v": [0.60, 0.65, 0.55, 0.60, 0.45, 0.25]},
+    {"id": "fernet_noche", "v": [0.75, 0.85, 0.70, 0.65, 0.50, 0.35]},
+    {"id": "cumbia_villa", "v": [0.80, 0.90, 0.75, 0.80, 0.55, 0.40]},
+    {"id": "fiaca_sillon", "v": [0.05, 0.15, 0.10, 0.05, 0.05, 0.20]},
+    {"id": "mufa_cafe", "v": [0.30, 0.25, 0.20, 0.15, 0.10, 0.60]},
+    {"id": "banca_amigo", "v": [0.20, 0.35, 0.40, 0.25, 0.15, 0.15]},
+    {"id": "corta_decision", "v": [0.70, 0.40, 0.85, 0.55, 0.25, 0.30]},
+    {"id": "re_bueno", "v": [0.25, 0.55, 0.50, 0.60, 0.35, 0.20]},
+    {"id": "cheto_lounge", "v": [0.50, 0.70, 0.45, 0.55, 0.60, 0.35]},
+    {"id": "al_toque", "v": [0.40, 0.45, 0.90, 0.50, 0.25, 0.25]},
+    {"id": "piba_club", "v": [0.60, 0.65, 0.55, 0.60, 0.40, 0.30]},
+    {"id": "mango_mercado", "v": [0.35, 0.50, 0.45, 0.30, 0.20, 0.35]},
+    {"id": "chino_run", "v": [0.45, 0.55, 0.70, 0.40, 0.30, 0.25]},
+    {"id": "boludo_mood", "v": [0.50, 0.45, 0.35, 0.40, 0.25, 0.30]}
+  ]
+}
+
+}
