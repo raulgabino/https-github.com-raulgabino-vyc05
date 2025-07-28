@@ -84,3 +84,33 @@ export function deriveePlaceVector(place: { category?: string; tags?: string[] }
 
   return adjustedVector
 }
+
+// Encontrar el slug más cercano basado en similitud vectorial
+export async function nearestSlug(targetVector: number[]): Promise<string> {
+  try {
+    // Load vibes catalog
+    const response = await fetch("/data/vibes.json")
+    const data = await response.json()
+
+    // Handle both array and object formats
+    const vibes = Array.isArray(data) ? data : data.vibes || []
+
+    let bestMatch = vibes[0]
+    let bestSimilarity = 0
+
+    for (const vibe of vibes) {
+      if (vibe.v && Array.isArray(vibe.v)) {
+        const similarity = cosineSimilarity(targetVector, vibe.v)
+        if (similarity > bestSimilarity) {
+          bestSimilarity = similarity
+          bestMatch = vibe
+        }
+      }
+    }
+
+    return bestMatch?.id || "explorar"
+  } catch (error) {
+    console.error("Error finding nearest slug:", error)
+    return "explorar"
+  }
+}

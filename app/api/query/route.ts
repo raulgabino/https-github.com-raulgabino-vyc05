@@ -9,6 +9,7 @@ export const runtime = "edge"
 
 export async function POST(req: Request) {
   const { text } = await req.json()
+
   if (!text) return NextResponse.json({ error: "text required" }, { status: 400 })
 
   // 1 · mini-parse
@@ -25,7 +26,8 @@ export async function POST(req: Request) {
   const candidates = all.filter((p) => (p.playlists ?? []).includes(slug)).slice(0, 15)
 
   // 4 · catalog slugs (top 200 por popularidad simulada)
-  const catalogSlugs = vibesCatalog.vibes.slice(0, 200).map((v) => v.id)
+  const vibes = Array.isArray(vibesCatalog) ? vibesCatalog : vibesCatalog.vibes || []
+  const catalogSlugs = vibes.slice(0, 200).map((v) => v.id)
 
   // 5 · mega-prompt
   const result = await runMegaPrompt(text, candidates, catalogSlugs)

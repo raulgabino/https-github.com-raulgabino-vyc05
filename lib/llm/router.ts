@@ -72,3 +72,13 @@ export async function parseUserQuery(userInput: string): Promise<RouterResponse>
     }
   }
 }
+
+// Extract vibe and city from user input (alias for parseUserQuery)
+export async function extractVibeAndCity(userInput: string): Promise<{ city: string; vibe: string; intent: string }> {
+  const result = await parseUserQuery(userInput)
+  return {
+    city: result.city,
+    vibe: result.vibe,
+    intent: result.intent,
+  }
+}
