@@ -4,6 +4,7 @@ import { loadPlaces } from "@/lib/data/loadPlaces"
 import { runMegaPrompt } from "@/lib/llm/megaprompt"
 import { checkCooldown } from "@/lib/vibes/cooldown"
 import vibesCatalog from "@/public/data/vibes.json"
+import type { City } from "@/lib/types"
 
 export const runtime = "edge"
 
@@ -31,7 +32,7 @@ export async function POST(req: Request) {
 
     // 3 · pre-filter lugares
     console.log("3️⃣ Loading places for city:", city)
-    const all = await loadPlaces(city as any)
+    const all = loadPlaces(city as City)
     console.log("✅ Loaded places:", all.length)
 
     if (all.length === 0) {

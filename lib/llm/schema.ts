@@ -11,8 +11,15 @@ export const BuildResponseSchema = z.object({
   places: z.array(
     z.object({
       id: z.number(),
+      name: z.string(),
+      category: z.string(),
+      description: z.string(),
       score: z.number(),
       tagline: z.string(),
+      rank_score: z.number().optional(),
+      tags: z.array(z.string()).optional(),
+      coordinates: z.array(z.number()).optional(),
+      rango_precios: z.string().optional(),
     }),
   ),
   itinerary_html: z.string().optional(),
@@ -41,10 +48,17 @@ export const buildResponseFn = {
           type: "object",
           properties: {
             id: { type: "number" },
+            name: { type: "string" },
+            category: { type: "string" },
+            description: { type: "string" },
             score: { type: "number" },
             tagline: { type: "string" },
+            rank_score: { type: "number" },
+            tags: { type: "array", items: { type: "string" } },
+            coordinates: { type: "array", items: { type: "number" } },
+            rango_precios: { type: "string" },
           },
-          required: ["id", "score", "tagline"],
+          required: ["id", "name", "category", "description", "score", "tagline"],
         },
       },
       itinerary_html: { type: "string" },
@@ -54,20 +68,19 @@ export const buildResponseFn = {
 }
 
 /** — Prompt del sistema reutilizado por runMegaPrompt — */
-export const SYSTEM_PROMPT = `Eres el motor único de YourCityVibes. 
+export const SYSTEM_PROMPT =
+  `Eres el motor único de YourCityVibes. Devuelve SOLO una llamada a la función build_response sin texto extra.
 
-Analiza la consulta del usuario y los lugares candidatos proporcionados. 
-Devuelve SOLO una llamada a la función build_response con:
+Tu trabajo es:
+1. Analizar la consulta del usuario para entender qué tipo de vibra busca
+2. Seleccionar los mejores lugares de la lista de candidatos que coincidan con esa vibra
+3. Generar taglines atractivos y personalizados para cada lugar
+4. Asignar scores basados en qué tan bien cada lugar coincide con la vibra solicitada
+5. Devolver la respuesta estructurada usando la función build_response
 
-1. city: La ciudad detectada
-2. vibe: Un objeto con slug (la vibra detectada), vector v de 6 dimensiones, y si es nueva
-3. places: Array de lugares rankeados con id, score (0-1) y tagline atractivo en español
-4. itinerary_html: HTML opcional con itinerario sugerido
-
-IMPORTANTE: 
-- Usa los IDs reales de los lugares candidatos proporcionados
-- Crea taglines únicos y atractivos para cada lugar
-- El score debe reflejar qué tan bien coincide el lugar con la vibra
-- Prioriza lugares que mejor coincidan con la vibra del usuario
-
-Ejemplo de tagline: "El refugio perfecto para una cita romántica" o "Donde la música y las luces crean magia nocturna"`.trim()
+Reglas importantes:
+- SIEMPRE usa los nombres reales de los lugares de la lista de candidatos
+- Los taglines deben ser creativos y específicos para cada lugar
+- Los scores deben estar entre 0.1 y 1.0
+- Incluye toda la información disponible del lugar original
+- Si no hay candidatos, devuelve una lista vacía pero mantén la estructura`.trim()

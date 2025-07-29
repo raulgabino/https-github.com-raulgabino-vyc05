@@ -75,23 +75,9 @@ export default function Home() {
         const data = await response.json()
         console.log("✅ Search results:", data)
 
-        // Transform the response to match our UI expectations
-        const transformedPlaces =
-          data.places?.map((place: any) => ({
-            id: place.id?.toString() || Math.random().toString(),
-            name: place.tagline || `Lugar ${place.id}`,
-            category: "Lugar recomendado",
-            description: place.tagline || "",
-            tagline: place.tagline,
-            rank_score: place.score || 0.8,
-            tags: [],
-            coordinates: [0, 0],
-            rango_precios: "$$",
-          })) || []
+        setPlaces(data.places || [])
 
-        setPlaces(transformedPlaces)
-
-        if (transformedPlaces.length === 0) {
+        if (!data.places || data.places.length === 0) {
           setError("No se encontraron lugares para esa vibra")
         }
       } else {

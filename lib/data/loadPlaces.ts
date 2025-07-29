@@ -1,5 +1,10 @@
 import type { Place, City } from "../types"
 import { cosineSimilarity, deriveePlaceVector } from "../vibes/vector"
+import cdmxData from "@/public/data/places-cdmx.json"
+import monterreyData from "@/public/data/places-monterrey.json"
+import guadalajaraData from "@/public/data/places-guadalajara.json"
+import guanajuatoData from "@/public/data/places-guanajuato.json"
+import cdvictoriaData from "@/public/data/places-cdvictoria.json"
 
 interface Vibe {
   id: string
@@ -8,16 +13,19 @@ interface Vibe {
   desc: string
 }
 
-// Cache en memoria global (Vercel Edge)
-const placesCache = new Map<City, Place[]>()
-const vibesCache = new Map<string, Vibe[]>()
+const placesData: Record<City, any> = {
+  cdmx: cdmxData,
+  monterrey: monterreyData,
+  guadalajara: guadalajaraData,
+  guanajuato: guanajuatoData,
+  cdvictoria: cdvictoriaData,
+}
 
-// Normalizar lugar a formato estándar
 function normalizePlace(place: any): Place {
   return {
     id: place.id?.toString() || "",
-    name: place.nombre || place.name || "",
-    category: place.categoría || place.category || "",
+    name: place.nombre || place.name || "Nombre no disponible",
+    category: place.categoría || place.category || "Categoría no disponible",
     description: place.descripción_corta || place.description || "",
     coordinates: place.coordinates || [place.lat || 0, place.lng || 0],
     rank_score: place.rank_score || place.rating || 4.0,
@@ -26,65 +34,25 @@ function normalizePlace(place: any): Place {
   }
 }
 
-export async function loadPlaces(city: City): Promise<Place[]> {
-  console.log(`📍 Loading places for city: ${city}`)
-
-  if (placesCache.has(city)) {
-    const cached = placesCache.get(city)!
-    console.log(`✅ Using cached places: ${cached.length}`)
-    return cached
-  }
-
+export function loadPlaces(city: City): Place[] {
   try {
-    const fileMap: Record<City, string> = {
-      monterrey: "monterrey",
-      guadalajara: "guadalajara",
-      cdmx: "cdmx",
-      guanajuato: "guanajuato",
-      cdvictoria: "cdvictoria",
-    }
-
-    const fileName = fileMap[city]
-    const url = `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/data/places-${fileName}.json`
-    console.log(`📡 Fetching places from: ${url}`)
-
-    const response = await fetch(url)
-    if (!response.ok) {
-      console.error(`❌ Failed to fetch places for ${city}: ${response.status}`)
+    const data = placesData[city]
+    if (!data || !data.lugares) {
+      console.error(`No data or 'lugares' key found for city: ${city}`)
       return []
     }
-
-    const data = await response.json()
-    console.log(`📊 Raw data structure:`, Object.keys(data))
-
-    const rawPlaces = data.lugares || []
-    console.log(`📊 Raw places count: ${rawPlaces.length}`)
-
-    if (rawPlaces.length === 0) {
-      console.warn(`⚠️ No places found in data for ${city}`)
-      return []
-    }
-
-    const places: Place[] = rawPlaces.map(normalizePlace)
-    console.log(`✅ Normalized places: ${places.length}`)
-    console.log(`📍 Sample place:`, places[0])
-
-    placesCache.set(city, places)
+    const places: Place[] = data.lugares.map(normalizePlace)
+    console.log(`Loaded ${places.length} places for ${city} from direct import.`)
     return places
   } catch (error) {
-    console.error(`❌ Error loading places for ${city}:`, error)
+    console.error(`Error loading places for ${city}:`, error)
     return []
   }
 }
 
 export async function loadVibes(): Promise<Vibe[]> {
-  if (vibesCache.has("vibes")) {
-    return vibesCache.get("vibes")!
-  }
-
   try {
-    const url = `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/data/vibes.json`
-    const response = await fetch(url)
+    const response = await fetch("/data/vibes.json")
     if (!response.ok) {
       console.error(`Failed to fetch vibes: ${response.status}`)
       return []
@@ -93,7 +61,6 @@ export async function loadVibes(): Promise<Vibe[]> {
     const data = await response.json()
     const vibes: Vibe[] = data.vibes || []
 
-    vibesCache.set("vibes", vibes)
     console.log(`Loaded ${vibes.length} vibes`)
     return vibes
   } catch (error) {
