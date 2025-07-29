@@ -29,6 +29,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [currentRoute, setCurrentRoute] = useState<RouteData | null>(null)
   const [showArticle, setShowArticle] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const { shareRoute, sharePlace } = useShare()
 
@@ -40,9 +41,11 @@ export default function Home() {
         if (response.ok) {
           const data = await response.json()
           setVibes(data.vibes || [])
+          console.log("✅ Loaded vibes:", data.vibes?.length || 0)
         }
       } catch (error) {
-        console.error("Error loading vibes:", error)
+        console.error("❌ Error loading vibes:", error)
+        setError("Error cargando las vibras")
       }
     }
 
@@ -50,29 +53,41 @@ export default function Home() {
   }, [])
 
   const handleVibeSelect = async (vibe: string) => {
+    console.log("🎯 Vibe selected:", vibe)
     setSelectedVibe(vibe)
     setCurrentRoute(null)
+    setError(null)
 
     if (!vibe) return
 
     setLoading(true)
     try {
+      console.log("📡 Sending request to /api/query...")
       const response = await fetch("/api/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: vibe }),
       })
 
+      console.log("📡 Response status:", response.status)
+
       if (response.ok) {
         const data = await response.json()
+        console.log("✅ Search results:", data)
         setPlaces(data.places || [])
-        console.log("Search results:", data)
+
+        if (!data.places || data.places.length === 0) {
+          setError("No se encontraron lugares para esa vibra")
+        }
       } else {
-        console.error("Search failed:", await response.json())
+        const errorData = await response.json()
+        console.error("❌ Search failed:", errorData)
+        setError(`Error en la búsqueda: ${errorData.error || "Error desconocido"}`)
         setPlaces([])
       }
     } catch (error) {
-      console.error("Search error:", error)
+      console.error("❌ Search error:", error)
+      setError("Error de conexión. Intenta de nuevo.")
       setPlaces([])
     } finally {
       setLoading(false)
@@ -132,6 +147,9 @@ export default function Home() {
           </div>
         )}
 
+        {/* Error Display */}
+        {error && <div className="text-center text-red-500 bg-red-50 p-4 rounded-lg">{error}</div>}
+
         {/* Results */}
         {currentRoute && (
           <RoutePreview route={currentRoute} onReadArticle={() => setShowArticle(true)} onShare={handleShare} />
@@ -148,9 +166,14 @@ export default function Home() {
           </div>
         )}
 
-        {loading && <div className="text-center text-muted-foreground">Buscando lugares con esa vibra...</div>}
+        {loading && (
+          <div className="text-center text-muted-foreground">
+            <div className="animate-spin inline-block w-6 h-6 border-2 border-current border-t-transparent rounded-full mr-2"></div>
+            Buscando lugares con esa vibra...
+          </div>
+        )}
 
-        {selectedVibe && !loading && places.length === 0 && !currentRoute && (
+        {selectedVibe && !loading && places.length === 0 && !currentRoute && !error && (
           <div className="text-center text-muted-foreground">
             No encontramos lugares con esa vibra. Prueba con otra.
           </div>

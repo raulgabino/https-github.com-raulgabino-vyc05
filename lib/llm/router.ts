@@ -1,6 +1,12 @@
 import OpenAI from "openai"
 
-const openai = new OpenAI()
+if (!process.env.OPENAI_API_KEY) {
+  throw new Error("OPENAI_API_KEY is required")
+}
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+})
 
 export async function extractVibeAndCity(text: string): Promise<{ city: string; vibe: string }> {
   try {
@@ -9,8 +15,11 @@ export async function extractVibeAndCity(text: string): Promise<{ city: string; 
       messages: [
         {
           role: "system",
-          content:
-            "Extract the city and vibe from the user's text. Return JSON with 'city' and 'vibe' fields. Default city is 'monterrey'.",
+          content: `Extrae la ciudad y la vibra del texto del usuario. 
+          Ciudades válidas: monterrey, cdmx, guadalajara, guanajuato, cdvictoria.
+          Si no se especifica ciudad, usa "monterrey" por defecto.
+          Para la vibra, extrae la palabra clave principal del sentimiento o ambiente que busca.
+          Responde SOLO en formato JSON: {"city": "ciudad", "vibe": "vibra"}`,
         },
         {
           role: "user",
@@ -35,7 +44,7 @@ export async function extractVibeAndCity(text: string): Promise<{ city: string; 
       return { city: "monterrey", vibe: text.toLowerCase().trim() }
     }
   } catch (error) {
-    console.error("Error extracting vibe and city:", error)
+    console.error("Error in extractVibeAndCity:", error)
     return { city: "monterrey", vibe: text.toLowerCase().trim() }
   }
 }

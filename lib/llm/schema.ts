@@ -22,9 +22,46 @@ export const BuildResponseSchema = z.object({
 export const buildResponseFn = {
   name: "build_response",
   description: "Respuesta final que la UI puede renderizar",
-  parameters: BuildResponseSchema,
+  parameters: {
+    type: "object",
+    properties: {
+      city: { type: "string" },
+      vibe: {
+        type: "object",
+        properties: {
+          slug: { type: "string" },
+          v: { type: "array", items: { type: "number" }, minItems: 6, maxItems: 6 },
+          isNew: { type: "boolean" },
+        },
+        required: ["slug", "v"],
+      },
+      places: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: {
+            id: { type: "number" },
+            score: { type: "number" },
+            tagline: { type: "string" },
+          },
+          required: ["id", "score", "tagline"],
+        },
+      },
+      itinerary_html: { type: "string" },
+    },
+    required: ["city", "vibe", "places"],
+  },
 }
 
 /** — Prompt del sistema reutilizado por runMegaPrompt — */
-export const SYSTEM_PROMPT =
-  `Eres el motor único de YourCityVibes. Devuelve SOLO una llamada a la función build_response sin texto extra.`.trim()
+export const SYSTEM_PROMPT = `Eres el motor único de YourCityVibes. 
+
+Analiza la consulta del usuario y los lugares candidatos proporcionados. 
+Devuelve SOLO una llamada a la función build_response con:
+
+1. city: La ciudad detectada
+2. vibe: Un objeto con slug (la vibra detectada), vector v de 6 dimensiones, y si es nueva
+3. places: Array de lugares rankeados con id, score (0-1) y tagline atractivo
+4. itinerary_html: HTML opcional con itinerario sugerido
+
+Prioriza lugares que mejor coincidan con la vibra del usuario.`.trim()
