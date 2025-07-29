@@ -17,6 +17,26 @@ export async function runMegaPrompt(userQuery: string, candidates: any[], catalo
       catalogSlugsCount: catalogSlugs.length,
     })
 
+    // Log first few candidates to see what we're working with
+    console.log(
+      "📍 Sample candidates:",
+      candidates.slice(0, 3).map((c) => ({
+        id: c.id,
+        name: c.name || c.nombre,
+        category: c.category || c.categoría,
+      })),
+    )
+
+    if (candidates.length === 0) {
+      console.warn("⚠️ No candidates provided to megaprompt")
+      return {
+        city: "monterrey",
+        vibe: { slug: "explorar", v: [0.2, 0.2, 0.2, 0.2, 0.2, 0.0], isNew: false },
+        places: [],
+        itinerary_html: "<p>No se encontraron lugares para esta búsqueda</p>",
+      }
+    }
+
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
@@ -30,7 +50,7 @@ ${candidates.map((c, i) => `${i + 1}. ${c.name || c.nombre} - ${c.category || c.
 
 Vibras disponibles en el catálogo: ${catalogSlugs.slice(0, 20).join(", ")}...
 
-Analiza la consulta y devuelve los mejores lugares con sus taglines.`,
+Analiza la consulta y devuelve los mejores lugares con sus taglines atractivos.`,
         },
       ],
       functions: [buildResponseFn],
@@ -45,19 +65,30 @@ Analiza la consulta y devuelve los mejores lugares con sus taglines.`,
 
     const result = JSON.parse(functionCall.arguments)
     console.log("✅ Megaprompt result:", result)
+
+    // Validate that we have real places
+    if (result.places && result.places.length > 0) {
+      console.log(
+        "🎯 Generated places:",
+        result.places.map((p) => ({ id: p.id, tagline: p.tagline })),
+      )
+    }
+
     return result
   } catch (error) {
     console.error("❌ Error in runMegaPrompt:", error)
 
-    // Fallback response
+    // Improved fallback response with real candidate data
+    const fallbackPlaces = candidates.slice(0, 3).map((place, index) => ({
+      id: Number.parseInt(place.id) || index + 1,
+      score: 0.8 - index * 0.1,
+      tagline: `${place.name || place.nombre} - ${place.category || place.categoría}`,
+    }))
+
     return {
       city: "monterrey",
       vibe: { slug: "explorar", v: [0.2, 0.2, 0.2, 0.2, 0.2, 0.0], isNew: false },
-      places: candidates.slice(0, 3).map((place, index) => ({
-        id: Number.parseInt(place.id) || index,
-        score: 0.8,
-        tagline: `${place.name || place.nombre} está padrísimo`,
-      })),
+      places: fallbackPlaces,
       itinerary_html: "<p>Explora estos lugares increíbles</p>",
     }
   }

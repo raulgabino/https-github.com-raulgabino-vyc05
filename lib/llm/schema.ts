@@ -61,7 +61,13 @@ Devuelve SOLO una llamada a la función build_response con:
 
 1. city: La ciudad detectada
 2. vibe: Un objeto con slug (la vibra detectada), vector v de 6 dimensiones, y si es nueva
-3. places: Array de lugares rankeados con id, score (0-1) y tagline atractivo
+3. places: Array de lugares rankeados con id, score (0-1) y tagline atractivo en español
 4. itinerary_html: HTML opcional con itinerario sugerido
 
-Prioriza lugares que mejor coincidan con la vibra del usuario.`.trim()
+IMPORTANTE: 
+- Usa los IDs reales de los lugares candidatos proporcionados
+- Crea taglines únicos y atractivos para cada lugar
+- El score debe reflejar qué tan bien coincide el lugar con la vibra
+- Prioriza lugares que mejor coincidan con la vibra del usuario
+
+Ejemplo de tagline: "El refugio perfecto para una cita romántica" o "Donde la música y las luces crean magia nocturna"`.trim()

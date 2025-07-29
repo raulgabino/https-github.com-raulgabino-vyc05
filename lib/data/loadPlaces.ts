@@ -27,8 +27,12 @@ function normalizePlace(place: any): Place {
 }
 
 export async function loadPlaces(city: City): Promise<Place[]> {
+  console.log(`📍 Loading places for city: ${city}`)
+
   if (placesCache.has(city)) {
-    return placesCache.get(city)!
+    const cached = placesCache.get(city)!
+    console.log(`✅ Using cached places: ${cached.length}`)
+    return cached
   }
 
   try {
@@ -41,22 +45,34 @@ export async function loadPlaces(city: City): Promise<Place[]> {
     }
 
     const fileName = fileMap[city]
-    const response = await fetch(`/data/places-${fileName}.json`)
+    const url = `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/data/places-${fileName}.json`
+    console.log(`📡 Fetching places from: ${url}`)
+
+    const response = await fetch(url)
     if (!response.ok) {
-      console.error(`Failed to fetch places for ${city}: ${response.status}`)
+      console.error(`❌ Failed to fetch places for ${city}: ${response.status}`)
       return []
     }
 
     const data = await response.json()
+    console.log(`📊 Raw data structure:`, Object.keys(data))
+
     const rawPlaces = data.lugares || []
+    console.log(`📊 Raw places count: ${rawPlaces.length}`)
+
+    if (rawPlaces.length === 0) {
+      console.warn(`⚠️ No places found in data for ${city}`)
+      return []
+    }
 
     const places: Place[] = rawPlaces.map(normalizePlace)
+    console.log(`✅ Normalized places: ${places.length}`)
+    console.log(`📍 Sample place:`, places[0])
 
     placesCache.set(city, places)
-    console.log(`Loaded ${places.length} places for ${city}`)
     return places
   } catch (error) {
-    console.error(`Error loading places for ${city}:`, error)
+    console.error(`❌ Error loading places for ${city}:`, error)
     return []
   }
 }
@@ -67,7 +83,8 @@ export async function loadVibes(): Promise<Vibe[]> {
   }
 
   try {
-    const response = await fetch("/data/vibes.json")
+    const url = `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/data/vibes.json`
+    const response = await fetch(url)
     if (!response.ok) {
       console.error(`Failed to fetch vibes: ${response.status}`)
       return []

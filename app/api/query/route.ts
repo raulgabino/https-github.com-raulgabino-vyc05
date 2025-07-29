@@ -31,10 +31,25 @@ export async function POST(req: Request) {
 
     // 3 · pre-filter lugares
     console.log("3️⃣ Loading places for city:", city)
-    const all = await loadPlaces(city)
+    const all = await loadPlaces(city as any)
     console.log("✅ Loaded places:", all.length)
+
+    if (all.length === 0) {
+      console.warn("⚠️ No places loaded, returning empty result")
+      return NextResponse.json({
+        city,
+        vibe: { slug, v: [0.2, 0.2, 0.2, 0.2, 0.2, 0.0], isNew: false },
+        places: [],
+        itinerary_html: "<p>No se encontraron lugares para esta ciudad</p>",
+      })
+    }
+
     const candidates = all.slice(0, 15)
-    console.log("✅ Candidates:", candidates.length)
+    console.log("✅ Candidates selected:", candidates.length)
+    console.log(
+      "📍 Sample candidates:",
+      candidates.slice(0, 2).map((c) => ({ name: c.name, category: c.category })),
+    )
 
     // 4 · catalog slugs (top 200 por popularidad simulada)
     console.log("4️⃣ Loading vibes catalog...")

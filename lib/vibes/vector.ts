@@ -88,14 +88,18 @@ export function deriveePlaceVector(place: { category?: string; tags?: string[] }
 // Encontrar el slug más cercano basado en similitud vectorial
 export async function nearestSlug(targetVector: number[]): Promise<string> {
   try {
+    console.log(`🔍 Finding nearest slug for vector: [${targetVector.join(", ")}]`)
+
     // En edge runtime, usar fetch
-    const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/data/vibes.json`)
+    const url = `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/data/vibes.json`
+    const response = await fetch(url)
     if (!response.ok) {
-      throw new Error("Failed to load vibes catalog")
+      throw new Error(`Failed to load vibes catalog: ${response.status}`)
     }
 
     const data = await response.json()
     const vibes = Array.isArray(data) ? data : data.vibes || []
+    console.log(`📊 Loaded ${vibes.length} vibes for comparison`)
 
     let nearestSlug = "explorar"
     let maxSimilarity = -1
@@ -110,9 +114,10 @@ export async function nearestSlug(targetVector: number[]): Promise<string> {
       }
     }
 
+    console.log(`✅ Nearest slug: ${nearestSlug} (similarity: ${maxSimilarity.toFixed(3)})`)
     return nearestSlug
   } catch (error) {
-    console.error("Error finding nearest slug:", error)
+    console.error("❌ Error finding nearest slug:", error)
     return "explorar" // fallback
   }
 }
