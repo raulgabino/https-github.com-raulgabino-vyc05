@@ -60,7 +60,7 @@ export default function Home() {
       const response = await fetch("/api/query", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: vibe }),
+        body: JSON.stringify({ text: vibe }),
       })
 
       if (response.ok) {

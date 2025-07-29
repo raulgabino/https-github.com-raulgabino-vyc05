@@ -1,41 +1,17 @@
-// 6 dimensiones del vector v: [Party, Chill, Culture, Romance, Outdoor, Luxe]
-export const VECTOR_DIMENSIONS = {
-  PARTY: 0, // Energy/Fiesta
-  CHILL: 1, // Comfort/Relax
-  CULTURE: 2, // Gourmet/Cultural
-  ROMANCE: 3, // Intimacy/Romántico
-  OUTDOOR: 4, // Adventure/Aventurero
-  LUXE: 5, // Premium/Luxe
-} as const
+import type { Place } from "@/lib/types"
 
-// Vectores base para categorías de lugares
-export const CATEGORY_VECTORS: Record<string, number[]> = {
-  Restaurante: [0.1, 0.3, 0.4, 0.2, 0.0, 0.3],
-  Café: [0.0, 0.5, 0.3, 0.1, 0.1, 0.1],
-  "Bar y Cantina": [0.6, 0.2, 0.1, 0.1, 0.0, 0.2],
-  "Club / Antro": [0.8, 0.0, 0.0, 0.0, 0.0, 0.2],
-  "Rooftop / Terraza": [0.4, 0.3, 0.1, 0.2, 0.0, 0.4],
-  "Mercado & Food Truck": [0.3, 0.2, 0.4, 0.0, 0.1, 0.0],
-  "Boutique / Concept Store": [0.0, 0.1, 0.3, 0.1, 0.0, 0.5],
-  "Belleza & Spa": [0.0, 0.7, 0.1, 0.2, 0.0, 0.4],
-  "Arte & Cultura": [0.0, 0.2, 0.6, 0.1, 0.1, 0.2],
-  "Librería & Papelería": [0.0, 0.4, 0.5, 0.1, 0.0, 0.1],
-  "Parque / Outdoor": [0.1, 0.3, 0.1, 0.1, 0.4, 0.0],
-  "Entretenimiento & Experiencia": [0.4, 0.2, 0.3, 0.1, 0.0, 0.2],
-}
-
-// Calcular similitud coseno entre dos vectores
-export function cosineSimilarity(vectorA: number[], vectorB: number[]): number {
-  if (vectorA.length !== vectorB.length) return 0
+// Cosine similarity function
+export function cosineSimilarity(a: number[], b: number[]): number {
+  if (a.length !== b.length) return 0
 
   let dotProduct = 0
   let normA = 0
   let normB = 0
 
-  for (let i = 0; i < vectorA.length; i++) {
-    dotProduct += vectorA[i] * vectorB[i]
-    normA += vectorA[i] * vectorA[i]
-    normB += vectorB[i] * vectorB[i]
+  for (let i = 0; i < a.length; i++) {
+    dotProduct += a[i] * b[i]
+    normA += a[i] * a[i]
+    normB += b[i] * b[i]
   }
 
   if (normA === 0 || normB === 0) return 0
@@ -43,74 +19,49 @@ export function cosineSimilarity(vectorA: number[], vectorB: number[]): number {
   return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB))
 }
 
-// Derivar vector promedio para un lugar basado en su categoría y tags
-export function deriveePlaceVector(place: { category?: string; tags?: string[] }): number[] {
-  const baseVector = CATEGORY_VECTORS[place.category || ""] || [0.2, 0.2, 0.2, 0.2, 0.2, 0.0]
+// Derive place vector from tags and description
+export function deriveePlaceVector(place: Place): number[] {
+  // Simple implementation - derive 6D vector from place properties
+  const tags = place.tags || []
+  const category = place.category || ""
+  const description = place.description || ""
 
-  // Ajustar vector basado en tags específicos
-  const adjustedVector = [...baseVector]
+  // Basic vector derivation (this would be more sophisticated in production)
+  const vector = [0, 0, 0, 0, 0, 0]
 
-  if (place.tags) {
-    place.tags.forEach((tag) => {
-      const lowerTag = tag.toLowerCase()
+  // Map categories to vector dimensions
+  if (category.includes("restaurant") || category.includes("comida")) vector[0] = 1
+  if (category.includes("bar") || category.includes("bebida")) vector[1] = 1
+  if (category.includes("cultura") || category.includes("museo")) vector[2] = 1
+  if (category.includes("naturaleza") || category.includes("parque")) vector[3] = 1
+  if (category.includes("compras") || category.includes("shopping")) vector[4] = 1
+  if (category.includes("entretenimiento") || category.includes("diversión")) vector[5] = 1
 
-      // Ajustes basados en tags
-      if (["fiesta", "party", "baile", "dj"].some((t) => lowerTag.includes(t))) {
-        adjustedVector[VECTOR_DIMENSIONS.PARTY] += 0.1
-      }
-      if (["relax", "chill", "tranquilo", "relajado"].some((t) => lowerTag.includes(t))) {
-        adjustedVector[VECTOR_DIMENSIONS.CHILL] += 0.1
-      }
-      if (["gourmet", "cultural", "arte", "tradicional"].some((t) => lowerTag.includes(t))) {
-        adjustedVector[VECTOR_DIMENSIONS.CULTURE] += 0.1
-      }
-      if (["romántico", "íntimo", "parejas", "romance"].some((t) => lowerTag.includes(t))) {
-        adjustedVector[VECTOR_DIMENSIONS.ROMANCE] += 0.1
-      }
-      if (["outdoor", "naturaleza", "aventura", "senderismo"].some((t) => lowerTag.includes(t))) {
-        adjustedVector[VECTOR_DIMENSIONS.OUTDOOR] += 0.1
-      }
-      if (["lujo", "exclusivo", "premium", "elegante"].some((t) => lowerTag.includes(t))) {
-        adjustedVector[VECTOR_DIMENSIONS.LUXE] += 0.1
-      }
-    })
-  }
-
-  // Normalizar para que la suma no exceda 1
-  const sum = adjustedVector.reduce((a, b) => a + b, 0)
-  if (sum > 1) {
-    return adjustedVector.map((v) => v / sum)
-  }
-
-  return adjustedVector
+  return vector
 }
 
-// Encontrar el slug más cercano basado en similitud vectorial
+// Find nearest slug based on vector similarity
 export async function nearestSlug(targetVector: number[]): Promise<string> {
   try {
     // Load vibes catalog
     const response = await fetch("/data/vibes.json")
     const data = await response.json()
-
-    // Handle both array and object formats
     const vibes = Array.isArray(data) ? data : data.vibes || []
 
-    let bestMatch = vibes[0]
-    let bestSimilarity = 0
+    let bestMatch = vibes[0]?.id || "default"
+    let bestSimilarity = -1
 
     for (const vibe of vibes) {
-      if (vibe.v && Array.isArray(vibe.v)) {
-        const similarity = cosineSimilarity(targetVector, vibe.v)
-        if (similarity > bestSimilarity) {
-          bestSimilarity = similarity
-          bestMatch = vibe
-        }
+      const similarity = cosineSimilarity(targetVector, vibe.v)
+      if (similarity > bestSimilarity) {
+        bestSimilarity = similarity
+        bestMatch = vibe.id
       }
     }
 
-    return bestMatch?.id || "explorar"
+    return bestMatch
   } catch (error) {
     console.error("Error finding nearest slug:", error)
-    return "explorar"
+    return "default"
   }
 }

@@ -22,8 +22,8 @@ export async function POST(req: Request) {
   const slug = cd.status === "alias_existing" ? cd.slugNearest : slugCandidate
 
   // 3 · pre-filter lugares
-  const all = loadPlaces(city)
-  const candidates = all.filter((p) => (p.playlists ?? []).includes(slug)).slice(0, 15)
+  const all = await loadPlaces(city)
+  const candidates = all.slice(0, 15)
 
   // 4 · catalog slugs (top 200 por popularidad simulada)
   const vibes = Array.isArray(vibesCatalog) ? vibesCatalog : vibesCatalog.vibes || []
