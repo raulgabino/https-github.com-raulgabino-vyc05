@@ -1,33 +1,41 @@
-import { generateText } from "ai"
-import { openai } from "@ai-sdk/openai"
+import OpenAI from "openai"
 
-export interface ParsedQuery {
-  city: string
-  vibe: string
-  intent: "spot" | "route" | "unknown"
-}
+const openai = new OpenAI()
 
-export async function extractVibeAndCity(text: string): Promise<ParsedQuery> {
+export async function extractVibeAndCity(text: string): Promise<{ city: string; vibe: string }> {
   try {
-    const { text: result } = await generateText({
-      model: openai("gpt-4o-mini"),
-      system: `Extract city and vibe from user query. Return JSON with format: {"city": "monterrey|cdmx|guadalajara|guanajuato|cdvictoria", "vibe": "extracted_vibe", "intent": "spot|route|unknown"}. Default city to "monterrey" if not specified.`,
-      prompt: text,
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "system",
+          content:
+            "Extract the city and vibe from the user's text. Return JSON with 'city' and 'vibe' fields. Default city is 'monterrey'.",
+        },
+        {
+          role: "user",
+          content: text,
+        },
+      ],
       temperature: 0.1,
     })
 
-    const parsed = JSON.parse(result)
-    return {
-      city: parsed.city || "monterrey",
-      vibe: parsed.vibe || text.toLowerCase().trim(),
-      intent: parsed.intent || "spot",
+    const content = response.choices[0]?.message?.content
+    if (!content) {
+      return { city: "monterrey", vibe: text.toLowerCase().trim() }
+    }
+
+    try {
+      const parsed = JSON.parse(content)
+      return {
+        city: parsed.city || "monterrey",
+        vibe: parsed.vibe || text.toLowerCase().trim(),
+      }
+    } catch {
+      return { city: "monterrey", vibe: text.toLowerCase().trim() }
     }
   } catch (error) {
-    console.error("Error parsing query:", error)
-    return {
-      city: "monterrey",
-      vibe: text.toLowerCase().trim(),
-      intent: "spot",
-    }
+    console.error("Error extracting vibe and city:", error)
+    return { city: "monterrey", vibe: text.toLowerCase().trim() }
   }
 }
