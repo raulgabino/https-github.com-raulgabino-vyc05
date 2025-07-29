@@ -1,5 +1,5 @@
 // Vector operations for 6D vibe space
-// Dimensions: [Chill, Energy, Social, Adventure, Culture, Luxe]
+// Dimensions: [Chill, Energy, Social, Aesthetic, Cultural, Luxe]
 
 export function cosineSimilarity(a: number[], b: number[]): number {
   if (a.length !== b.length) return 0
@@ -20,85 +20,88 @@ export function cosineSimilarity(a: number[], b: number[]): number {
 }
 
 export function deriveePlaceVector(place: { category: string; tags: string[] }): number[] {
-  // Initialize 6D vector [Chill, Energy, Social, Adventure, Culture, Luxe]
-  const vector = [0.2, 0.2, 0.2, 0.2, 0.2, 0.2] // Base values
+  // Initialize 6D vector [Chill, Energy, Social, Aesthetic, Cultural, Luxe]
+  const vector = [0, 0, 0, 0, 0, 0]
 
   // Category-based scoring
-  const category = place.category.toLowerCase()
-  if (category.includes("restaurante") || category.includes("café")) {
-    vector[0] += 0.3 // Chill
-    vector[2] += 0.2 // Social
-  }
-  if (category.includes("bar") || category.includes("club")) {
-    vector[1] += 0.4 // Energy
-    vector[2] += 0.4 // Social
-  }
-  if (category.includes("museo") || category.includes("galería")) {
-    vector[0] += 0.2 // Chill
-    vector[4] += 0.5 // Culture
-  }
-  if (category.includes("parque") || category.includes("naturaleza")) {
-    vector[0] += 0.4 // Chill
-    vector[3] += 0.3 // Adventure
+  const categoryMap: Record<string, number[]> = {
+    Café: [0.8, 0.2, 0.4, 0.6, 0.3, 0.2],
+    Restaurante: [0.4, 0.5, 0.7, 0.5, 0.4, 0.6],
+    Bar: [0.3, 0.8, 0.9, 0.4, 0.3, 0.4],
+    "Espacio Cultural": [0.6, 0.3, 0.5, 0.8, 0.9, 0.3],
+    Boutique: [0.5, 0.4, 0.3, 0.9, 0.5, 0.7],
+    Spa: [0.9, 0.1, 0.2, 0.7, 0.2, 0.8],
   }
 
-  // Tag-based scoring
+  const categoryVector = categoryMap[place.category] || [0.5, 0.5, 0.5, 0.5, 0.5, 0.5]
+
+  // Add category influence
+  for (let i = 0; i < 6; i++) {
+    vector[i] += categoryVector[i] * 0.6
+  }
+
+  // Tag-based adjustments
+  const tagInfluence: Record<string, number[]> = {
+    romanticón: [0.7, 0.2, 0.8, 0.8, 0.3, 0.7],
+    aesthetic: [0.4, 0.3, 0.4, 1.0, 0.6, 0.6],
+    barbón: [0.3, 0.6, 0.8, 0.5, 0.4, 0.5],
+    traca: [0.1, 1.0, 1.0, 0.3, 0.2, 0.3],
+    cultural: [0.6, 0.4, 0.5, 0.7, 1.0, 0.4],
+    gourmet: [0.5, 0.3, 0.6, 0.8, 0.7, 0.9],
+    tranqui: [1.0, 0.1, 0.3, 0.6, 0.4, 0.4],
+    familiar: [0.8, 0.4, 0.7, 0.4, 0.5, 0.3],
+  }
+
+  // Apply tag influences
   place.tags.forEach((tag) => {
-    const tagLower = tag.toLowerCase()
-    if (tagLower.includes("relax") || tagLower.includes("zen")) {
-      vector[0] += 0.3
-    }
-    if (tagLower.includes("fiesta") || tagLower.includes("party")) {
-      vector[1] += 0.4
-      vector[2] += 0.3
-    }
-    if (tagLower.includes("romántico") || tagLower.includes("romantic")) {
-      vector[0] += 0.2
-      vector[2] += 0.2
-    }
-    if (tagLower.includes("aventura") || tagLower.includes("adventure")) {
-      vector[3] += 0.4
-    }
-    if (tagLower.includes("cultural") || tagLower.includes("arte")) {
-      vector[4] += 0.4
-    }
-    if (tagLower.includes("lujo") || tagLower.includes("luxury")) {
-      vector[5] += 0.4
+    const influence = tagInfluence[tag.toLowerCase()]
+    if (influence) {
+      for (let i = 0; i < 6; i++) {
+        vector[i] += influence[i] * 0.4
+      }
     }
   })
 
   // Normalize to [0, 1] range
-  return vector.map((v) => Math.min(1, Math.max(0, v)))
+  return vector.map((v) => Math.max(0, Math.min(1, v)))
 }
 
 export async function nearestSlug(vector: number[]): Promise<string> {
   try {
-    // Load vibes data
-    const response = await fetch("/data/vibes.json")
-    if (!response.ok) return "general"
+    // Import vibes data
+    const vibesData = await import("@/public/data/vibes.json")
+    const vibes = vibesData.vibes || []
 
-    const data = await response.json()
-    const vibes = data.vibes || []
+    let bestMatch = "aesthetic" // fallback
+    let bestSimilarity = -1
 
-    if (vibes.length === 0) return "general"
-
-    // Find most similar vibe
-    let bestMatch = vibes[0]
-    let bestSimilarity = cosineSimilarity(vector, vibes[0].v)
-
-    for (const vibe of vibes) {
-      const similarity = cosineSimilarity(vector, vibe.v)
-      if (similarity > bestSimilarity) {
-        bestSimilarity = similarity
-        bestMatch = vibe
+    vibes.forEach((vibe: any) => {
+      if (vibe.v && Array.isArray(vibe.v)) {
+        const similarity = cosineSimilarity(vector, vibe.v)
+        if (similarity > bestSimilarity) {
+          bestSimilarity = similarity
+          bestMatch = vibe.id
+        }
       }
-    }
+    })
 
-    return bestMatch.id
+    console.log(`🎯 Nearest slug for vector ${vector}: ${bestMatch} (similarity: ${bestSimilarity.toFixed(3)})`)
+    return bestMatch
   } catch (error) {
     console.error("Error finding nearest slug:", error)
-    return "general"
+    return "aesthetic" // fallback
   }
+}
+
+export function createVibeVector(
+  chill: number,
+  energy: number,
+  social: number,
+  aesthetic: number,
+  cultural: number,
+  luxe: number,
+): number[] {
+  return [chill, energy, social, aesthetic, cultural, luxe].map((v) => Math.max(0, Math.min(1, v)))
 }
 
 export function euclideanDistance(a: number[], b: number[]): number {

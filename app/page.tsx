@@ -1,193 +1,186 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { VibeSelector } from "@/components/VibeSelector"
+import { Input } from "@/components/ui/input"
+import { MapPin, Search } from "lucide-react"
 import { PlaceCard } from "@/components/PlaceCard"
 import { RandomRouteButton } from "@/components/RandomRouteButton"
-import { RoutePreview } from "@/components/RoutePreview"
-import { ArticleSheet } from "@/components/ArticleSheet"
-import { useShare } from "@/lib/hooks/useShare"
-import { MapPin } from "lucide-react"
-import type { Place, RouteData, City, Vibe } from "@/lib/types"
+import { VibeSelector } from "@/components/VibeSelector"
+import type { Place } from "@/lib/types"
 
-type PlaceWithTagline = Place & { tagline?: string }
-
-const cities: { id: City; name: string }[] = [
-  { id: "monterrey", name: "Monterrey" },
-  { id: "cdmx", name: "CDMX" },
-  { id: "guadalajara", name: "Guadalajara" },
-  { id: "guanajuato", name: "Guanajuato" },
-  { id: "cdvictoria", name: "Cd. Victoria" },
+const cities = [
+  { id: "monterrey", name: "Monterrey", icon: "🏔️" },
+  { id: "cdmx", name: "CDMX", icon: "🏛️" },
+  { id: "guadalajara", name: "Guadalajara", icon: "🌮" },
+  { id: "guanajuato", name: "Guanajuato", icon: "🎨" },
+  { id: "cdvictoria", name: "Cd. Victoria", icon: "🌵" },
 ]
 
-export default function Home() {
-  const [selectedCity, setSelectedCity] = useState<City>("monterrey")
-  const [selectedVibe, setSelectedVibe] = useState<string>("")
-  const [vibes, setVibes] = useState<Vibe[]>([])
-  const [places, setPlaces] = useState<PlaceWithTagline[]>([])
-  const [loading, setLoading] = useState(false)
-  const [currentRoute, setCurrentRoute] = useState<RouteData | null>(null)
-  const [showArticle, setShowArticle] = useState(false)
+export default function HomePage() {
+  const [selectedCity, setSelectedCity] = useState("cdmx")
+  const [searchQuery, setSearchQuery] = useState("")
+  const [places, setPlaces] = useState<Place[]>([])
+  const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [currentVibe, setCurrentVibe] = useState<string>("")
 
-  const { shareRoute, sharePlace } = useShare()
+  const handleSearch = async () => {
+    if (!searchQuery.trim()) return
 
-  // Load vibes on mount
-  useEffect(() => {
-    const loadVibes = async () => {
-      try {
-        const response = await fetch("/data/vibes.json")
-        if (response.ok) {
-          const data = await response.json()
-          setVibes(data.vibes || [])
-          console.log("✅ Loaded vibes:", data.vibes?.length || 0)
-        }
-      } catch (error) {
-        console.error("❌ Error loading vibes:", error)
-        setError("Error cargando las vibras")
-      }
-    }
-
-    loadVibes()
-  }, [])
-
-  const handleVibeSelect = async (vibe: string) => {
-    console.log("🎯 Vibe selected:", vibe)
-    setSelectedVibe(vibe)
-    setCurrentRoute(null)
+    setIsLoading(true)
     setError(null)
+    console.log("🔍 Starting search for:", searchQuery)
 
-    if (!vibe) return
-
-    setLoading(true)
     try {
-      console.log("📡 Sending request to /api/query...")
       const response = await fetch("/api/query", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: vibe }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: searchQuery }),
       })
 
       console.log("📡 Response status:", response.status)
 
       if (response.ok) {
         const data = await response.json()
-        console.log("✅ Search results:", data)
+        console.log("✅ Response data:", data)
 
         setPlaces(data.places || [])
-
-        if (!data.places || data.places.length === 0) {
-          setError("No se encontraron lugares para esa vibra")
-        }
+        setCurrentVibe(data.vibe?.slug || searchQuery)
       } else {
         const errorData = await response.json()
-        console.error("❌ Search failed:", errorData)
-        setError(`Error en la búsqueda: ${errorData.error || "Error desconocido"}`)
-        setPlaces([])
+        console.error("❌ API Error:", errorData)
+        setError(errorData.error || "Error en la búsqueda")
       }
     } catch (error) {
-      console.error("❌ Search error:", error)
-      setError("Error de conexión. Intenta de nuevo.")
-      setPlaces([])
+      console.error("❌ Network Error:", error)
+      setError("Error de conexión")
     } finally {
-      setLoading(false)
+      setIsLoading(false)
     }
   }
 
-  const handleRouteGenerated = (route: RouteData) => {
-    setCurrentRoute(route)
-    setPlaces([])
-  }
+  const handleVibeSelect = async (vibe: string) => {
+    setIsLoading(true)
+    setError(null)
+    setCurrentVibe(vibe)
+    console.log("🎯 Vibe selected:", vibe)
 
-  const handleShare = async () => {
-    if (currentRoute) {
-      const result = await shareRoute(currentRoute)
-      console.log("Share result:", result)
+    try {
+      const response = await fetch("/api/query", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ text: vibe }),
+      })
+
+      console.log("📡 Vibe response status:", response.status)
+
+      if (response.ok) {
+        const data = await response.json()
+        console.log("✅ Vibe response data:", data)
+
+        setPlaces(data.places || [])
+      } else {
+        const errorData = await response.json()
+        console.error("❌ Vibe API Error:", errorData)
+        setError(errorData.error || "Error al buscar vibra")
+      }
+    } catch (error) {
+      console.error("❌ Vibe Network Error:", error)
+      setError("Error de conexión")
+    } finally {
+      setIsLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Header */}
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold text-center mb-2">YourCityVibes</h1>
-          <p className="text-center text-muted-foreground">Encuentra lugares que van con tu vibra</p>
+    <div className="min-h-screen bg-black text-white">
+      <div className="container mx-auto px-4 py-8">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold mb-2">YourCityVibes</h1>
+          <p className="text-gray-400">Encuentra lugares que van con tu vibra</p>
         </div>
-      </header>
 
-      <main className="container mx-auto px-4 py-8 space-y-8">
         {/* City Selection */}
-        <div className="flex justify-center">
-          <div className="flex gap-2 p-1 bg-secondary rounded-lg">
-            {cities.map((city) => (
-              <Button
-                key={city.id}
-                variant={selectedCity === city.id ? "default" : "ghost"}
-                size="sm"
-                onClick={() => setSelectedCity(city.id)}
-                className="text-sm"
-              >
-                <MapPin className="mr-1 h-3 w-3" />
-                {city.name}
-              </Button>
-            ))}
-          </div>
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {cities.map((city) => (
+            <Button
+              key={city.id}
+              variant={selectedCity === city.id ? "default" : "outline"}
+              onClick={() => setSelectedCity(city.id)}
+              className={`${
+                selectedCity === city.id
+                  ? "bg-white text-black hover:bg-gray-200"
+                  : "border-gray-600 text-gray-300 hover:bg-gray-800"
+              }`}
+            >
+              <MapPin className="w-4 h-4 mr-2" />
+              {city.name}
+            </Button>
+          ))}
         </div>
 
         {/* Vibe Selector */}
-        <div className="max-w-2xl mx-auto">
-          <VibeSelector selectedVibe={selectedVibe} onVibeSelect={handleVibeSelect} vibes={vibes} />
+        <VibeSelector onVibeSelect={handleVibeSelect} />
+
+        {/* Search Bar */}
+        <div className="flex gap-2 mb-8 max-w-2xl mx-auto">
+          <Input
+            placeholder="Busca entre 450+ vibes..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && handleSearch()}
+            className="bg-gray-900 border-gray-700 text-white placeholder-gray-400"
+          />
+          <Button onClick={handleSearch} disabled={isLoading}>
+            <Search className="w-4 h-4" />
+            {isLoading ? "Buscando..." : "Buscar"}
+          </Button>
         </div>
 
         {/* Random Route Button */}
-        {selectedVibe && (
-          <div className="flex justify-center">
-            <RandomRouteButton city={selectedCity} vibe={selectedVibe} onRouteGenerated={handleRouteGenerated} />
-          </div>
-        )}
+        <div className="text-center mb-8">
+          <RandomRouteButton city={selectedCity} />
+        </div>
 
         {/* Error Display */}
-        {error && <div className="text-center text-red-500 bg-red-50 p-4 rounded-lg">{error}</div>}
-
-        {/* Results */}
-        {currentRoute && (
-          <RoutePreview route={currentRoute} onReadArticle={() => setShowArticle(true)} onShare={handleShare} />
+        {error && (
+          <div className="bg-red-900/20 border border-red-500 text-red-300 px-4 py-3 rounded mb-6">{error}</div>
         )}
 
+        {/* Results */}
         {places.length > 0 && (
-          <div className="space-y-4">
-            <h2 className="text-xl font-semibold text-center">Lugares con vibra {selectedVibe}</h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {places.map((place) => (
-                <PlaceCard key={place.id} place={place} onClick={() => sharePlace(place)} />
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold mb-6 text-center">Lugares con vibra {currentVibe}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {places.map((place, index) => (
+                <PlaceCard key={place.id || index} place={place} />
               ))}
             </div>
           </div>
         )}
 
-        {loading && (
-          <div className="text-center text-muted-foreground">
-            <div className="animate-spin inline-block w-6 h-6 border-2 border-current border-t-transparent rounded-full mr-2"></div>
-            Buscando lugares con esa vibra...
+        {/* Loading State */}
+        {isLoading && (
+          <div className="text-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+            <p className="text-gray-400">Buscando lugares perfectos para ti...</p>
           </div>
         )}
 
-        {selectedVibe && !loading && places.length === 0 && !currentRoute && !error && (
-          <div className="text-center text-muted-foreground">
-            No encontramos lugares con esa vibra. Prueba con otra.
+        {/* Empty State */}
+        {!isLoading && places.length === 0 && !error && currentVibe && (
+          <div className="text-center py-12">
+            <p className="text-gray-400 text-lg">No se encontraron lugares para esta vibra</p>
+            <p className="text-gray-500 mt-2">Intenta con otra búsqueda</p>
           </div>
         )}
-      </main>
-
-      {/* Article Sheet */}
-      <ArticleSheet
-        route={currentRoute}
-        isOpen={showArticle}
-        onClose={() => setShowArticle(false)}
-        onShare={handleShare}
-      />
+      </div>
     </div>
   )
 }

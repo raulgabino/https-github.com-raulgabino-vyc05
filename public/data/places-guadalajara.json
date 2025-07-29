@@ -1,5 +1,21 @@
 {
-  "lugares":,
+  "lugares": [
+    {
+      "id": "GUADALAJARA_001",
+      "nombre": "Alcalde",
+      "categoria": "Restaurante",
+      "direccion": "Av. México 2903, Terranova, 44689 Guadalajara, Jal.",
+      "ciudad": "Guadalajara",
+      "telefono": "+523336404169",
+      "horarios": "Mar-Sáb 19:00-01:00",
+      "coordenadas": {
+        "lat": 20.67916,
+        "lng": -103.38827
+      },
+      "calificacion": 4.9,
+      "rango_precio": "$$$$",
+      "descripcion_corta": "Restaurante de alta cocina mexicana contemporánea con ingredientes locales. Una experiencia gastronómica única que redefine la cocina tapatía.",
+      "playlists": ["gourmet", "romanticón", "dateo"],
       "servicios": ["menú degustación", "cocina de autor", "valet parking"],
       "fuente": "gemini",
       "lugar_id": null,
@@ -117,7 +133,7 @@
       "direccion": "Diag. Golfo de Cortés 4152, Monraz, 44670 Guadalajara, Jal.",
       "ciudad": "Guadalajara",
       "telefono": "+523338131379",
-      "horarios": "Lun-Jue 13:00-00:00, Vie-Sáb 13:00-01:00, Dom 13:00-22:00",
+      "horarios": "Jue-Sáb 21:00-03:00, Dom 18:00-00:00",
       "coordenadas": {
         "lat": 20.68658,
         "lng": -103.39867
@@ -544,27 +560,6 @@
       },
       "calificacion": 4.7,
       "rango_precio": "$",
-      "descripcion_corta": "El museo de la Universidad de Guadalajara, con los imponentes murales de Orozco en el Paraninfo y una vibrante agenda de exposiciones de arte contemporáneo. Entrada libre.",
-      "playlists": ["cultural", "dominguero", "tranqui"],
-      "servicios": ["arte contemporáneo", "murales de Orozco", "entrada gratuita"],
-      "fuente": "gemini",
-      "lugar_id": null,
-      "activo": true
-    },
-    {
-      "id": "GUADALAJARA_028",
-      "nombre": "Impronta Casa Editora",
-      "categoria": "Librería",
-      "direccion": "C. Penitenciaría 414, Col Americana, 44180 Guadalajara, Jal.",
-      "ciudad": "Guadalajara",
-      "telefono": "+523338252641",
-      "horarios": "Mié-Sáb 10:00-21:00, Lun-Mar 09:00-17:00",
-      "coordenadas": {
-        "lat": 20.670556,
-        "lng": -103.355833
-      },
-      "calificacion": 4.8,
-      "rango_precio": "$$",
       "descripcion_corta": "Más que una librería, es un taller de imprenta, editorial, café y centro cultural. Un espacio único que rescata el arte de la impresión y fomenta la creatividad.",
       "playlists": ["cultural", "vintage", "tranqui"],
       "servicios": ["libros de editoriales independientes", "taller de imprenta", "cafetería"],
@@ -573,7 +568,7 @@
       "activo": true
     },
     {
-      "id": "GUADALAJARA_029",
+      "id": "GUADALAJARA_028",
       "nombre": "Librería José Luis Martínez (FCE)",
       "categoria": "Librería",
       "direccion": "Av. Chapultepec Sur 198, Col Americana, 44160 Guadalajara, Jal.",
@@ -594,7 +589,7 @@
       "activo": true
     },
     {
-      "id": "GUADALAJARA_030",
+      "id": "GUADALAJARA_029",
       "nombre": "Gaia Spa",
       "categoria": "Spa",
       "direccion": "Diag. Golfo de Cortés 2959, Vallarta Nte., 44690 Guadalajara, Jal.",

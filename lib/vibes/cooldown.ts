@@ -1,35 +1,45 @@
-import { kv } from "@vercel/kv"
-import { nearestSlug } from "./vector"
+// Simple cooldown implementation without KV for now
+// This can be enhanced later with actual Vercel KV
 
-const TTL = 86400 // 24 h
+const cooldownMap = new Map<string, { count: number; timestamp: number }>()
+const TTL = 86400000 // 24 hours in milliseconds
 const N = 5 // threshold
 
-export async function checkCooldown(slug: string, v: number[], meta: { tags: string[]; desc: string }) {
+export async function checkCooldown(
+  slug: string,
+  v: number[],
+  meta: { tags: string[]; desc: string },
+): Promise<{ status: string; slug?: string; slugNearest?: string }> {
   try {
-    const key = `hits:${slug}`
-    const hits = await kv.incr(key)
+    console.log("⏰ Checking cooldown for slug:", slug)
 
-    if (hits === 1) {
-      await kv.expire(key, TTL)
+    const now = Date.now()
+    const key = `hits:${slug}`
+    const existing = cooldownMap.get(key)
+
+    // Clean expired entries
+    if (existing && now - existing.timestamp > TTL) {
+      cooldownMap.delete(key)
     }
 
-    if (hits >= N) {
-      await kv.hset(`pending:${slug}`, {
-        v: JSON.stringify(v),
-        tags: JSON.stringify(meta.tags),
-        desc: meta.desc,
-        firstUsed: Date.now(),
-      })
-      await kv.del(key)
+    const current = cooldownMap.get(key) || { count: 0, timestamp: now }
+    current.count += 1
+    current.timestamp = now
+    cooldownMap.set(key, current)
+
+    console.log(`⏰ Cooldown status: ${current.count}/${N} hits`)
+
+    if (current.count >= N) {
+      console.log("🔄 Cooldown threshold reached, creating pending...")
+      cooldownMap.delete(key) // Reset counter
       return { status: "pending_created", slug }
     }
 
-    // map al slug existente más cercano
-    const slugNearest = await nearestSlug(v)
-    return { status: "alias_existing", slugNearest }
+    // For now, always return alias_existing to use the original slug
+    // In a real implementation, this would call nearestSlug(v)
+    return { status: "alias_existing", slugNearest: slug }
   } catch (error) {
-    console.error("Error in checkCooldown:", error)
-    // Fallback: return the original slug
+    console.error("❌ Cooldown error:", error)
     return { status: "alias_existing", slugNearest: slug }
   }
 }

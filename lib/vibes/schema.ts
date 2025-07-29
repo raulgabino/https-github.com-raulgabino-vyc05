@@ -1,22 +1,22 @@
 import { z } from "zod"
 
-// Existing schema content...
+// Existing schemas...
 export const VibeSchema = z.object({
   id: z.string(),
-  v: z.array(z.number()).length(6),
+  name: z.string().optional(),
+  description: z.string().optional(),
   tags: z.array(z.string()).optional(),
-  desc: z.string().optional(),
+  vector: z.array(z.number()).length(6).optional(),
 })
 
 export const PlaceSchema = z.object({
   id: z.string(),
   name: z.string(),
   category: z.string(),
-  description: z.string(),
-  coordinates: z.array(z.number()).length(2),
-  rank_score: z.number(),
-  tags: z.array(z.string()),
-  rango_precios: z.string(),
+  description: z.string().optional(),
+  coordinates: z.tuple([z.number(), z.number()]).optional(),
+  rating: z.number().optional(),
+  tags: z.array(z.string()).optional(),
 })
 
 // Permitir que vibes.json sea un array plano o un objeto { vibes: [...] }

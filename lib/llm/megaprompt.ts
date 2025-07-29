@@ -5,69 +5,72 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-export async function runMegaPrompt(userQuery: string, candidates: any[], catalogSlugs: string[]) {
+export async function runMegaPrompt(userQuery: string, candidates: any[], catalogSlugs: string[]): Promise<any> {
   try {
-    console.log("🤖 Running megaprompt with:", {
-      userQuery,
+    console.log("🤖 Running mega-prompt with:", {
+      query: userQuery,
       candidatesCount: candidates.length,
       catalogSlugsCount: catalogSlugs.length,
     })
 
+    // If no candidates, return empty result
+    if (candidates.length === 0) {
+      console.log("⚠️ No candidates provided, returning empty result")
+      return {
+        city: "cdmx",
+        vibe: { slug: userQuery, v: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5] },
+        places: [],
+      }
+    }
+
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
-      functions: [buildResponseFn],
-      function_call: { name: "build_response" },
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         {
           role: "user",
-          content: `Consulta del usuario: "${userQuery}"
+          content: `Consulta: "${userQuery}"
 
 Candidatos disponibles:
-${candidates
-  .map(
-    (c, i) =>
-      `${i + 1}. ${c.name} (${c.category}) - ${c.description} - Rating: ${c.rank_score} - Tags: ${c.tags?.join(", ") || "N/A"}`,
-  )
-  .join("\n")}
+${candidates.map((place, i) => `${i + 1}. ${place.name} (${place.category}) - ${place.description}`).join("\n")}
 
-Vibes disponibles en el catálogo: ${catalogSlugs.slice(0, 20).join(", ")}...
-
-Selecciona los mejores lugares que coincidan con la vibra "${userQuery}" y genera taglines creativos.`,
+Catálogo de vibes: ${catalogSlugs.slice(0, 20).join(", ")}...`,
         },
       ],
+      functions: [buildResponseFn],
+      function_call: { name: "build_response" },
       temperature: 0.7,
+      max_tokens: 2000,
     })
 
     const functionCall = response.choices[0]?.message?.function_call
-    if (!functionCall || !functionCall.arguments) {
-      throw new Error("No function call received from OpenAI")
+    if (functionCall && functionCall.arguments) {
+      const result = JSON.parse(functionCall.arguments)
+      console.log("✅ Mega-prompt result:", result)
+      return result
     }
 
-    const result = JSON.parse(functionCall.arguments)
-    console.log("✅ Megaprompt result:", result)
-
-    return result
+    throw new Error("No function call in response")
   } catch (error) {
-    console.error("❌ Error in runMegaPrompt:", error)
+    console.error("❌ Mega-prompt error:", error)
 
     // Fallback response
+    const fallbackPlaces = candidates.slice(0, 3).map((place, index) => ({
+      id: place.id || `fallback-${index}`,
+      name: place.name || `Lugar ${index + 1}`,
+      category: place.category || "Lugar",
+      description: place.description || "Un lugar interesante para visitar",
+      tagline: `${place.name || `Lugar ${index + 1}`} - perfecto para tu vibra`,
+      score: 0.8 - index * 0.1,
+    }))
+
     return {
-      city: "monterrey",
-      vibe: { slug: userQuery, v: [0.2, 0.2, 0.2, 0.2, 0.2, 0.0], isNew: false },
-      places: candidates.slice(0, 3).map((place, index) => ({
-        id: Number.parseInt(place.id) || index + 1,
-        name: place.name,
-        category: place.category,
-        description: place.description,
-        score: 0.8,
-        tagline: `${place.name} es perfecto para tu vibra ${userQuery}`,
-        rank_score: place.rank_score,
-        tags: place.tags,
-        coordinates: place.coordinates,
-        rango_precios: place.rango_precios,
-      })),
-      itinerary_html: `<p>Lugares recomendados para la vibra "${userQuery}"</p>`,
+      city: "cdmx",
+      vibe: {
+        slug: userQuery,
+        v: [0.5, 0.5, 0.5, 0.5, 0.5, 0.5],
+      },
+      places: fallbackPlaces,
     }
   }
 }

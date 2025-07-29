@@ -1,26 +1,30 @@
 import OpenAI from "openai"
-import type { City } from "@/lib/types"
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-export async function extractVibeAndCity(text: string): Promise<{ city: City; vibe: string }> {
+export async function extractVibeAndCity(text: string): Promise<{ city: string; vibe: string }> {
   try {
+    console.log("🤖 Extracting vibe and city from:", text)
+
     const response = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content: `Extrae la ciudad y la vibra de la consulta del usuario. 
-          
-Ciudades válidas: monterrey, cdmx, guadalajara, guanajuato, cdvictoria
-Si no se especifica ciudad, usa "monterrey" por defecto.
+          content: `Eres un parser que extrae la ciudad y vibra de una consulta.
 
-La vibra debe ser una palabra o frase corta que describa el mood/ambiente que busca.
+Ciudades disponibles: monterrey, cdmx, guadalajara, guanajuato, cdvictoria
+Ciudad por defecto: cdmx
 
 Responde SOLO en formato JSON:
-{"city": "ciudad", "vibe": "vibra"}`,
+{"city": "ciudad", "vibe": "vibra_extraida"}
+
+Ejemplos:
+- "romanticon" → {"city": "cdmx", "vibe": "romanticon"}
+- "lugares para una cita en monterrey" → {"city": "monterrey", "vibe": "romantico"}
+- "aesthetic cafes" → {"city": "cdmx", "vibe": "aesthetic"}`,
         },
         {
           role: "user",
@@ -28,24 +32,35 @@ Responde SOLO en formato JSON:
         },
       ],
       temperature: 0.1,
+      max_tokens: 100,
     })
 
-    const content = response.choices[0]?.message?.content
-    if (!content) {
-      return { city: "monterrey", vibe: text }
+    const content = response.choices[0]?.message?.content?.trim()
+    console.log("🤖 Router response:", content)
+
+    if (content) {
+      try {
+        const parsed = JSON.parse(content)
+        console.log("✅ Parsed result:", parsed)
+        return {
+          city: parsed.city || "cdmx",
+          vibe: parsed.vibe || text,
+        }
+      } catch (parseError) {
+        console.error("❌ JSON parse error:", parseError)
+      }
     }
 
-    try {
-      const parsed = JSON.parse(content)
-      return {
-        city: parsed.city || "monterrey",
-        vibe: parsed.vibe || text,
-      }
-    } catch {
-      return { city: "monterrey", vibe: text }
+    // Fallback
+    return {
+      city: "cdmx",
+      vibe: text,
     }
   } catch (error) {
-    console.error("Error in extractVibeAndCity:", error)
-    return { city: "monterrey", vibe: text }
+    console.error("❌ Router error:", error)
+    return {
+      city: "cdmx",
+      vibe: text,
+    }
   }
 }

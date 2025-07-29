@@ -10,16 +10,12 @@ export const BuildResponseSchema = z.object({
   }),
   places: z.array(
     z.object({
-      id: z.number(),
+      id: z.string(),
       name: z.string(),
       category: z.string(),
       description: z.string(),
-      score: z.number(),
       tagline: z.string(),
-      rank_score: z.number().optional(),
-      tags: z.array(z.string()).optional(),
-      coordinates: z.array(z.number()).optional(),
-      rango_precios: z.string().optional(),
+      score: z.number(),
     }),
   ),
   itinerary_html: z.string().optional(),
@@ -32,12 +28,20 @@ export const buildResponseFn = {
   parameters: {
     type: "object",
     properties: {
-      city: { type: "string" },
+      city: {
+        type: "string",
+        description: "Ciudad seleccionada",
+      },
       vibe: {
         type: "object",
         properties: {
           slug: { type: "string" },
-          v: { type: "array", items: { type: "number" }, minItems: 6, maxItems: 6 },
+          v: {
+            type: "array",
+            items: { type: "number" },
+            minItems: 6,
+            maxItems: 6,
+          },
           isNew: { type: "boolean" },
         },
         required: ["slug", "v"],
@@ -47,18 +51,14 @@ export const buildResponseFn = {
         items: {
           type: "object",
           properties: {
-            id: { type: "number" },
+            id: { type: "string" },
             name: { type: "string" },
             category: { type: "string" },
             description: { type: "string" },
-            score: { type: "number" },
             tagline: { type: "string" },
-            rank_score: { type: "number" },
-            tags: { type: "array", items: { type: "string" } },
-            coordinates: { type: "array", items: { type: "number" } },
-            rango_precios: { type: "string" },
+            score: { type: "number" },
           },
-          required: ["id", "name", "category", "description", "score", "tagline"],
+          required: ["id", "name", "category", "description", "tagline", "score"],
         },
       },
       itinerary_html: { type: "string" },
@@ -68,19 +68,25 @@ export const buildResponseFn = {
 }
 
 /** — Prompt del sistema reutilizado por runMegaPrompt — */
-export const SYSTEM_PROMPT =
-  `Eres el motor único de YourCityVibes. Devuelve SOLO una llamada a la función build_response sin texto extra.
+export const SYSTEM_PROMPT = `Eres el motor único de YourCityVibes. 
 
-Tu trabajo es:
-1. Analizar la consulta del usuario para entender qué tipo de vibra busca
-2. Seleccionar los mejores lugares de la lista de candidatos que coincidan con esa vibra
-3. Generar taglines atractivos y personalizados para cada lugar
-4. Asignar scores basados en qué tan bien cada lugar coincide con la vibra solicitada
-5. Devolver la respuesta estructurada usando la función build_response
+Tu trabajo es procesar una consulta de búsqueda de lugares y devolver una respuesta estructurada usando la función build_response.
 
-Reglas importantes:
-- SIEMPRE usa los nombres reales de los lugares de la lista de candidatos
+Recibirás:
+1. Una consulta del usuario (ej: "romanticon", "lugares para una cita")
+2. Una lista de candidatos (lugares reales con datos)
+3. Un catálogo de slugs de vibes disponibles
+
+Debes:
+1. Interpretar la vibra solicitada
+2. Seleccionar los mejores lugares de los candidatos
+3. Generar taglines atractivos para cada lugar
+4. Asignar scores basados en qué tan bien coinciden con la vibra
+
+IMPORTANTE: 
+- Usa SOLO los lugares de la lista de candidatos
 - Los taglines deben ser creativos y específicos para cada lugar
-- Los scores deben estar entre 0.1 y 1.0
-- Incluye toda la información disponible del lugar original
-- Si no hay candidatos, devuelve una lista vacía pero mantén la estructura`.trim()
+- Los scores deben reflejar qué tan bien coincide cada lugar con la vibra solicitada
+- Si no hay candidatos, devuelve una lista vacía
+
+Devuelve SOLO una llamada a la función build_response sin texto extra.`.trim()
